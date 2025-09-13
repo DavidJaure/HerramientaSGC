@@ -1,0 +1,39 @@
+<!-- templates/iso9001.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>ISO 9001 - Herramienta SGC</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>ISO 9001</h1>
+      <p>Sistema de Gestión de la Calidad</p>
+    </header>
+
+    <main class="main-content">
+      <section class="card">
+        <h2>Descripción</h2>
+        <p>
+          La norma ISO 9001 establece los criterios para un sistema de gestión de calidad. 
+          Se centra en procesos, mejora continua y satisfacción del cliente.
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>Opciones disponibles</h2>
+        <ul>
+          <li>Requisitos</li>
+          <li>Documentación</li>
+          <li>Auditorías</li>
+          <li>Reportes</li>
+        </ul>
+      </section>
+
+      <a href="{{ url_for('home') }}" class="btn">⬅ Volver al inicio</a>
+    </main>
+  </div>
+</body>
+</html>

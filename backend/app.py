@@ -14,5 +14,9 @@ app = Flask(
 def home():
     return render_template("home.html")
 
+@app.route("/iso9001")
+def iso9001():
+    return render_template("iso9001.html")
+
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=5000)

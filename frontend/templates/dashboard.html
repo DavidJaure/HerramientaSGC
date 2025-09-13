@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h2>Bienvenido, {{ usuario }}</h2>
+    <div class="button-group">
+      <a href="{{ url_for('iso9001') }}" class="btn iso9001">ISO 9001</a>
+      <a href="{{ url_for('iso27001') }}" class="btn iso27001">ISO 27001</a>
+      <a href="{{ url_for('logout') }}" class="btn logout">Cerrar Sesión</a>
+    </div>
+  </div>
+</body>
+</html>

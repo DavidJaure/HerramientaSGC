@@ -2,17 +2,22 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Herramienta SGC</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <title>Inicio</title>
 </head>
 <body>
   <div class="container">
-    <h1>Bienvenido a la Herramienta SGC</h1>
-    <p>Seleccione la norma que desea aplicar:</p>
-    <div class="button-group">
-      <a href="{{ url_for('iso9001') }}" class="btn iso9001">ISO 9001</a>
-      <a href="/iso27001" class="btn iso27001">ISO 27001</a>
-    </div>
+    {% if usuario %}
+      <h2>Bienvenido, {{ usuario }}</h2>
+      <a href="{{ url_for('iso9001') }}" class="btn">ISO 9001</a>
+      <a href="{{ url_for('logout') }}" class="btn">Cerrar Sesión</a>
+    {% else %}
+      <form action="{{ url_for('login') }}" method="POST">
+        <input type="email" name="email" placeholder="Correo" required>
+        <input type="password" name="password" placeholder="Contraseña" required>
+        <button type="submit">Iniciar Sesión</button>
+      </form>
+    {% endif %}
   </div>
 </body>
 </html>

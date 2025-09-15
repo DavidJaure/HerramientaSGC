@@ -12,39 +12,78 @@
 
         <div class="cards">
             <!-- Contexto -->
+             
             <div class="card">
-                <h3>🏢 Contexto de la organización</h3>
-                <ul>
-                    <li><a href="{{ url_for('descargar_plantilla', categoria='contexto', archivo='analisis_interno.docx') }}" class="btn">📥 Análisis Interno</a></li>
-                    <li><a href="{{ url_for('descargar_plantilla', categoria='contexto', archivo='analisis_externo.docx') }}" class="btn">📥 Análisis Externo</a></li>
-                    <li><a href="{{ url_for('descargar_plantilla', categoria='contexto', archivo='partes_interesadas.xlsx') }}" class="btn">📥 Partes Interesadas</a></li>
-                </ul>
-            </div>
+    <h2>📂 Contexto de la organización</h2>
+    <ul>
+        <li>
+            <a href="{{ url_for('descargar_plantilla', categoria='contexto', archivo='PlantillaAlcanceformato.xlsx') }}" class="btn">
+                📥 4.3. Alcance
+            </a>
+        </li>
+        <li>
+            <a href="{{ url_for('descargar_plantilla', categoria='contexto', archivo='MapadeProcesosformato.xlsx') }}" class="btn">
+                📥 4.4 Mapa de Procesos
+            </a>
+        </li>
+        <li>
+            <a href="{{ url_for('descargar_plantilla', categoria='contexto', archivo='FichadeprocesosFormato.xlsx') }}" class="btn">
+                📥 4.4 Ficha de Procesos
+            </a>
+        </li>
+        <li>
+            <a href="{{ url_for('descargar_plantilla', categoria='contexto', archivo='PlantillaPartesinteresadasformato.xlsx') }}" class="btn">
+                📥 Partes Interesadas
+            </a>
+        </li>
+        <li>
+            <a href="{{ url_for('descargar_plantilla', categoria='contexto', archivo='PlantillaFODAFormato.xlsx') }}" class="btn">
+                📥 FODA
+            </a>
+        </li>
+        <li>
+            <a href="{{ url_for('descargar_plantilla', categoria='contexto', archivo='PlantillaPESTALFormato.xlsx') }}" class="btn">
+                📥 PESTAL
+            </a>
+        </li>
+        <li>
+            <a href="{{ url_for('descargar_plantilla', categoria='contexto', archivo='Plantilla5FUERZASDEPORTERFormato.xlsx') }}" class="btn">
+                📥 5 Fuerzas de Porter
+            </a>
+        </li>
+    </ul>
+</div>
+
 
             <!-- Liderazgo -->
             <div class="card">
                 <h3>👥 Liderazgo</h3>
                 <ul>
-                    <li><a href="{{ url_for('descargar_plantilla', categoria='liderazgo', archivo='politica_calidad.docx') }}" class="btn">📥 Política de Calidad</a></li>
-                    <li><a href="{{ url_for('descargar_plantilla', categoria='liderazgo', archivo='roles_responsabilidades.xlsx') }}" class="btn">📥 Roles y Responsabilidades</a></li>
+                    <li><a href="{{ url_for('descargar_plantilla', categoria='liderazgo', archivo='ChecklistLiderazgoActualFormato.xlsx') }}" class="btn">📥 5.1 Liderazgo</a></li>
+                    <li><a href="{{ url_for('descargar_plantilla', categoria='liderazgo', archivo='PlantillaPolíticadeCalidadFormato.xlsx') }}" class="btn">📥 Politica de calidad</a></li>
                 </ul>
             </div>
 
             <!-- Soporte -->
             <div class="card">
-                <h3>🛠️ Soporte</h3>
+                <h3>Planificación</h3>
                 <ul>
-                    <li><a href="{{ url_for('descargar_plantilla', categoria='soporte', archivo='plan_capacitacion.docx') }}" class="btn">📥 Plan de Capacitación</a></li>
-                    <li><a href="{{ url_for('descargar_plantilla', categoria='soporte', archivo='infraestructura.xlsx') }}" class="btn">📥 Infraestructura</a></li>
+                    <li><a href="{{ url_for('descargar_plantilla', categoria='planificacion', archivo='Objetivosdecalidad.xlsx') }}" class="btn">📥 6.2 Objetivos de calidad</a></li>
+                    <li><a href="{{ url_for('descargar_plantilla', categoria='planificacion', archivo='Planificacióndeloscambiosformato.xlsx') }}" class="btn">📥 6.3 Planificacion de los cambios </a></li>
                 </ul>
             </div>
 
             <!-- Operación -->
             <div class="card">
-                <h3>⚙️ Operación</h3>
+                <h3>⚙️ Soporte</h3>
                 <ul>
-                    <li><a href="{{ url_for('descargar_plantilla', categoria='operacion', archivo='procedimiento_produccion.docx') }}" class="btn">📥 Procedimiento Producción</a></li>
-                    <li><a href="{{ url_for('descargar_plantilla', categoria='operacion', archivo='control_documentos.xlsx') }}" class="btn">📥 Control Documentos</a></li>
+                    <li><a href="{{ url_for('descargar_plantilla', categoria='soporte', archivo='procedimiento_produccion.docx') }}" class="btn">📥 Procedimiento Producción</a></li>
+                    <li><a href="{{ url_for('descargar_plantilla', categoria='soporte', archivo='control_documentos.xlsx') }}" class="btn">📥 Control Documentos</a></li>
+                    <li><a href="{{ url_for('descargar_plantilla', categoria='soporte', archivo='control_documentos.xlsx') }}" class="btn">📥 Control Documentos</a></li>
+                    <li><a href="{{ url_for('descargar_plantilla', categoria='soporte', archivo='control_documentos.xlsx') }}" class="btn">📥 Control Documentos</a></li>
+                    <li><a href="{{ url_for('descargar_plantilla', categoria='soporte', archivo='control_documentos.xlsx') }}" class="btn">📥 Control Documentos</a></li>
+                    <li><a href="{{ url_for('descargar_plantilla', categoria='soporte', archivo='control_documentos.xlsx') }}" class="btn">📥 Control Documentos</a></li>
+                    <li><a href="{{ url_for('descargar_plantilla', categoria='soporte', archivo='control_documentos.xlsx') }}" class="btn">📥 Control Documentos</a></li>
                 </ul>
             </div>
 

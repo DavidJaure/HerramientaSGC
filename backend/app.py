@@ -1,6 +1,7 @@
 import os
 from flask import Flask, render_template, request, redirect, url_for, session
 from flask import send_from_directory #Para las plantillas
+from urllib.parse import unquote  # al inicio de tu archivo, si no lo tienes ya
 
 # Carpeta raíz del frontend
 FRONTEND_DIR = os.path.join(os.path.dirname(__file__), "../frontend")
@@ -104,15 +105,23 @@ def subir_evidencias():
         # En un futuro lo guardas en una carpeta o BD
     return "Evidencia subida con éxito."
 
-#PLantillas
+# Carpeta principal de las plantillas
+PLANTILLAS_DIR = os.path.join(FRONTEND_DIR, "plantillasISO9001")
+
+# Página que muestra la lista de categorías (opcional)
 @app.route("/plantillas")
 def plantillas():
-    return render_template("plantillas.html")
+    return render_template("plantillas.html")  # luego ajustaremos el HTML para listar dinámicamente
 
-@app.route("/descargar/<categoria>/<archivo>")
+# Descargar archivo por categoría y nombre
+@app.route("/plantillas/<categoria>/<archivo>")
 def descargar_plantilla(categoria, archivo):
-    ruta = f"plantillas/{categoria}"
+    archivo = unquote(archivo)  # decodifica %20 y signos
+    ruta = os.path.join(PLANTILLAS_DIR, categoria)
+    print("📂 Buscando archivo en:", ruta)
+    print("📄 Archivo solicitado:", archivo)
     return send_from_directory(ruta, archivo, as_attachment=True)
+
 
 
 

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Plantillas ISO 9001</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>📄 Plantillas ISO 9001</h1>
+        <p>Selecciona una categoría y descarga la plantilla que necesites:</p>
+
+        <div class="cards">
+            <!-- Contexto -->
+            <div class="card">
+                <h3>🏢 Contexto de la organización</h3>
+                <ul>
+                    <li><a href="{{ url_for('descargar_plantilla', categoria='contexto', archivo='analisis_interno.docx') }}" class="btn">📥 Análisis Interno</a></li>
+                    <li><a href="{{ url_for('descargar_plantilla', categoria='contexto', archivo='analisis_externo.docx') }}" class="btn">📥 Análisis Externo</a></li>
+                    <li><a href="{{ url_for('descargar_plantilla', categoria='contexto', archivo='partes_interesadas.xlsx') }}" class="btn">📥 Partes Interesadas</a></li>
+                </ul>
+            </div>
+
+            <!-- Liderazgo -->
+            <div class="card">
+                <h3>👥 Liderazgo</h3>
+                <ul>
+                    <li><a href="{{ url_for('descargar_plantilla', categoria='liderazgo', archivo='politica_calidad.docx') }}" class="btn">📥 Política de Calidad</a></li>
+                    <li><a href="{{ url_for('descargar_plantilla', categoria='liderazgo', archivo='roles_responsabilidades.xlsx') }}" class="btn">📥 Roles y Responsabilidades</a></li>
+                </ul>
+            </div>
+
+            <!-- Soporte -->
+            <div class="card">
+                <h3>🛠️ Soporte</h3>
+                <ul>
+                    <li><a href="{{ url_for('descargar_plantilla', categoria='soporte', archivo='plan_capacitacion.docx') }}" class="btn">📥 Plan de Capacitación</a></li>
+                    <li><a href="{{ url_for('descargar_plantilla', categoria='soporte', archivo='infraestructura.xlsx') }}" class="btn">📥 Infraestructura</a></li>
+                </ul>
+            </div>
+
+            <!-- Operación -->
+            <div class="card">
+                <h3>⚙️ Operación</h3>
+                <ul>
+                    <li><a href="{{ url_for('descargar_plantilla', categoria='operacion', archivo='procedimiento_produccion.docx') }}" class="btn">📥 Procedimiento Producción</a></li>
+                    <li><a href="{{ url_for('descargar_plantilla', categoria='operacion', archivo='control_documentos.xlsx') }}" class="btn">📥 Control Documentos</a></li>
+                </ul>
+            </div>
+
+            <!-- Evaluación -->
+            <div class="card">
+                <h3>📊 Evaluación del desempeño</h3>
+                <ul>
+                    <li><a href="{{ url_for('descargar_plantilla', categoria='evaluacion', archivo='indicadores.xlsx') }}" class="btn">📥 Indicadores</a></li>
+                    <li><a href="{{ url_for('descargar_plantilla', categoria='evaluacion', archivo='auditoria_interna.docx') }}" class="btn">📥 Auditoría Interna</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

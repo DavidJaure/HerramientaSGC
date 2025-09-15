@@ -1,5 +1,6 @@
 import os
 from flask import Flask, render_template, request, redirect, url_for, session
+from flask import send_from_directory #Para las plantillas
 
 # Carpeta raíz del frontend
 FRONTEND_DIR = os.path.join(os.path.dirname(__file__), "../frontend")
@@ -87,6 +88,31 @@ def iso9001_inicio():
         # Luego redirigimos a opcionesISO9001.html
         return render_template("opcionesISO9001.html", datos=datos)
     return render_template("registroISO.html")
+
+
+#implementacion
+@app.route("/iso9001/implementacion", methods=["GET"])
+def implementacion():
+    return render_template("implementacion.html")
+
+
+@app.route("/iso9001/evidencias", methods=["POST"])
+def subir_evidencias():
+    archivo = request.files.get("archivo")
+    if archivo:
+        print("Archivo recibido:", archivo.filename)
+        # En un futuro lo guardas en una carpeta o BD
+    return "Evidencia subida con éxito."
+
+#PLantillas
+@app.route("/plantillas")
+def plantillas():
+    return render_template("plantillas.html")
+
+@app.route("/descargar/<categoria>/<archivo>")
+def descargar_plantilla(categoria, archivo):
+    ruta = f"plantillas/{categoria}"
+    return send_from_directory(ruta, archivo, as_attachment=True)
 
 
 

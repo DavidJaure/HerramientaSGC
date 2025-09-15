@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Implementación ISO 9001</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Implementación ISO 9001</h1>
+        <p>Selecciona una de las opciones:</p>
+
+        <div class="button-group">
+            <!-- Ir a la página de plantillas -->
+            <form action="{{ url_for('plantillas') }}" method="get">
+                <button type="submit" class="btn">📄 Buscar y Descargar Plantilla</button>
+            </form>
+
+            <!-- Subir evidencias -->
+            <form action="{{ url_for('subir_evidencias') }}" method="post" enctype="multipart/form-data">
+                <input type="file" name="archivo" required>
+                <button type="submit" class="btn">📤 Subir Evidencias</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

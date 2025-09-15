@@ -113,3 +113,37 @@ form button:hover {
     background: #1e40af;
     transform: translateY(-2px);
 }
+
+/* style of implementaacion*/
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem 2rem;
+    text-align: left;
+}
+
+.form-grid label {
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+}
+
+.form-grid input {
+    width: 100%;
+    padding: 0.6rem;
+    border-radius: 0.5rem;
+    border: none;
+}
+/* Grupo de botones ISO 9001 */
+.button-group-iso9001 {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* dos columnas */
+    gap: 1rem; /* espacio entre botones */
+    justify-items: center;
+}
+
+/* Botones ISO 9001 internos */
+.button-group-iso9001 .btn {
+    width: 100%; /* que ocupen todo el ancho disponible */
+    max-width: 200px; /* pero no se hagan demasiado grandes */
+}

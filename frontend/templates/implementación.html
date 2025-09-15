@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Registro ISO</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h2>Registro ISO</h2>
+    
+    <form action="{{ url_for('registro_iso') }}" method="POST">
+      <div class="form-grid">
+        <label>Razón Social</label>
+        <input type="text" name="razon_social" required>
+
+        <label>NIT</label>
+        <input type="text" name="nit" required>
+
+        <label>Representante Legal</label>
+        <input type="text" name="representante_legal">
+
+        <label>Sector Económico</label>
+        <input type="text" name="sector_economico">
+
+        <label>Tipo de Empresa</label>
+        <input type="text" name="tipo_empresa">
+
+        <label>Dirección</label>
+        <input type="text" name="direccion">
+
+        <label>Teléfonos</label>
+        <input type="text" name="telefonos">
+
+        <label>Número de Empleados</label>
+        <input type="number" name="num_empleados">
+
+        <label>E-mail</label>
+        <input type="email" name="email">
+
+        <label>Web</label>
+        <input type="text" name="web">
+
+        <label>Facebook</label>
+        <input type="text" name="facebook">
+
+        <label>Instagram</label>
+        <input type="text" name="instagram">
+
+        <label>TikTok</label>
+        <input type="text" name="tiktok">
+      </div>
+
+      <div class="button-group">
+        <button type="submit" class="btn iso9001">Guardar</button>
+        <button type="button" class="btn iso9001">Verificación de Calidad I</button>
+        <button type="button" class="btn iso9001">Verificación de Calidad II</button>
+        <a href="{{ url_for('dashboard') }}" class="btn logout">Regresar</a>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

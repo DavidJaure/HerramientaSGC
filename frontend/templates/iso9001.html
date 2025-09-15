@@ -1,40 +1,30 @@
-<!-- templates/iso9001.html -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>ISO 9001 - Herramienta SGC</title>
+  <title>ISO 9001</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-
 </head>
 <body>
   <div class="container">
-    <header class="header">
-      <h1>ISO 9001</h1>
-      <p>Sistema de Gestión de la Calidad</p>
-    </header>
+    <h2>ISO 9001</h2>
+    <p>Selecciona una sección:</p>
 
-    <main class="main-content">
-      <section class="card">
-        <h2>Descripción</h2>
-        <p>
-          La norma ISO 9001 establece los criterios para un sistema de gestión de calidad. 
-          Se centra en procesos, mejora continua y satisfacción del cliente.
-        </p>
-      </section>
+    <div class="button-group-iso9001">
+      <a href="{{ url_for('dashboard') }}" class="btn inicio">Inicio</a>
+      <a href="#" class="btn">Objetivos</a>
+      <a href="#" class="btn">Beneficios</a>
+      <a href="#" class="btn">Ciclo PHVA</a>
+      <a href="#" class="btn">Organización</a>
+      <a href="#" class="btn">Liderazgo</a>
+      <a href="#" class="btn">Planificación</a>
+      <a href="#" class="btn">Apoyo</a>
+      <a href="#" class="btn">Operación</a>
+      <a href="#" class="btn">Desempeño</a>
+      <a href="#" class="btn">Mejora</a>
+    </div>
 
-      <section class="card">
-        <h2>Opciones disponibles</h2>
-        <ul>
-          <li>Requisitos</li>
-          <li>Documentación</li>
-          <li>Auditorías</li>
-          <li>Reportes</li>
-        </ul>
-      </section>
-
-      <a href="{{ url_for('home') }}" class="btn">⬅ Volver al inicio</a>
-    </main>
+    <a href="{{ url_for('dashboard') }}" class="btn logout">Regresar</a>
   </div>
 </body>
 </html>

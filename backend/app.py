@@ -63,15 +63,34 @@ def logout():
     return redirect(url_for("home"))
 
 #boton iso9001
+
 @app.route("/iso9001")
 def iso9001():
     if "usuario" not in session:
         return redirect(url_for("home"))
     return render_template("iso9001.html")
 
-@app.route("/iso9001/inicio")
+@app.route("/iso9001/inicio", methods=["GET", "POST"])
 def iso9001_inicio():
-    return "<h1>Inicio: Implementación, Auditoría y Capacitación</h1>"
+    if request.method == "POST":
+        datos = request.form.to_dict()
+        print("Registro ISO recibido:", datos)
+
+        # Guardamos en sesión de forma temporal
+        session['ultimo_registro_iso'] = datos
+
+        # 👉 Aquí en un futuro pondrás la lógica para guardar en la base de datos
+        # nuevo_registro = RegistroISO(**datos)
+        # db.session.add(nuevo_registro)
+        # db.session.commit()
+
+        # Luego redirigimos a opcionesISO9001.html
+        return render_template("opcionesISO9001.html", datos=datos)
+    return render_template("registroISO.html")
+
+
+
+
 
 @app.route("/iso9001/objetivos")
 def iso9001_objetivos():
@@ -129,63 +148,3 @@ if __name__ == "__main__":
 
 
 
-# ----------------------------
-# Formulario implementación
-# ----------------------------
-@app.route("/registro", methods=["GET", "POST"])
-def registro_iso():
-    if request.method == "POST":
-        # Aquí capturas los datos enviados desde el formulario
-        datos = request.form.to_dict()
-        print("Datos recibidos:", datos)  # temporal (muestra en consola)
-        return redirect(url_for("dashboard"))  # después de guardar, volver al dashboard
-    return render_template("registro.html")
-
-#boton iso9001
-@app.route("/iso9001")
-def iso9001():
-    return render_template("iso9001.html")
-
-@app.route("/iso9001/inicio")
-def iso9001_inicio():
-    return "<h1>Inicio: Implementación, Auditoría y Capacitación</h1>"
-
-@app.route("/iso9001/objetivos")
-def iso9001_objetivos():
-    return "<h1>Objetivos ISO 9001</h1>"
-
-@app.route("/iso9001/beneficios")
-def iso9001_beneficios():
-    return "<h1>Beneficios ISO 9001</h1>"
-
-@app.route("/iso9001/pvha")
-def iso9001_pvha():
-    return "<h1>Ciclo PHVA (Planear, Hacer, Verificar, Actuar)</h1>"
-
-@app.route("/iso9001/organizacion")
-def iso9001_organizacion():
-    return "<h1>Organización</h1>"
-
-@app.route("/iso9001/liderazgo")
-def iso9001_liderazgo():
-    return "<h1>Liderazgo</h1>"
-
-@app.route("/iso9001/planificacion")
-def iso9001_planificacion():
-    return "<h1>Planificación</h1>"
-
-@app.route("/iso9001/apoyo")
-def iso9001_apoyo():
-    return "<h1>Apoyo</h1>"
-
-@app.route("/iso9001/operacion")
-def iso9001_operacion():
-    return "<h1>Operación</h1>"
-
-@app.route("/iso9001/desempeno")
-def iso9001_desempeno():
-    return "<h1>Desempeño</h1>"
-
-@app.route("/iso9001/mejora")
-def iso9001_mejora():
-    return "<h1>Mejora</h1>"

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Registro ISO 9001</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h2>Registro ISO 9001</h2>
+    <form action="{{ url_for('iso9001_guardar') }}" method="POST">
+      <input type="text" name="razon_social" placeholder="Razón Social" required>
+      <input type="text" name="nit" placeholder="NIT" required>
+      <input type="text" name="representante" placeholder="Representante Legal">
+      <input type="text" name="sector" placeholder="Sector Económico">
+      <input type="text" name="tipo_empresa" placeholder="Tipo de Empresa">
+      <input type="text" name="direccion" placeholder="Dirección">
+      <input type="text" name="telefonos" placeholder="Teléfonos">
+      <input type="number" name="empleados" placeholder="Número de Empleados">
+      <input type="email" name="email" placeholder="E-mail">
+      <input type="text" name="web" placeholder="Web">
+      <input type="text" name="facebook" placeholder="Facebook">
+      <input type="text" name="instagram" placeholder="Instagram">
+      <input type="text" name="tiktok" placeholder="TikTok">
+
+      <div class="button-group">
+        <form method="POST">
+    <!-- tus campos -->
+    <button type="submit" class="btn iso9001">GUARDAR</button>
+    <a href="{{ url_for('dashboard') }}" class="btn logout">REGRESAR</a>
+</form>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

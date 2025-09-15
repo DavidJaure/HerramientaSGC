@@ -2,29 +2,71 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>ISO 9001</title>
+  <title>Registro ISO</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
   <div class="container">
-    <h2>ISO 9001</h2>
-    <p>Selecciona una sección:</p>
+    <h2>REGISTRO ISO</h2>
 
-    <div class="button-group-iso9001">
-      <a href="{{ url_for('dashboard') }}" class="btn inicio">Inicio</a>
-      <a href="#" class="btn">Objetivos</a>
-      <a href="#" class="btn">Beneficios</a>
-      <a href="#" class="btn">Ciclo PHVA</a>
-      <a href="#" class="btn">Organización</a>
-      <a href="#" class="btn">Liderazgo</a>
-      <a href="#" class="btn">Planificación</a>
-      <a href="#" class="btn">Apoyo</a>
-      <a href="#" class="btn">Operación</a>
-      <a href="#" class="btn">Desempeño</a>
-      <a href="#" class="btn">Mejora</a>
-    </div>
+    <!-- FORM con action y method POST -->
+    <form action="{{ url_for('iso9001_inicio') }}" method="POST" class="form-grid">
+      <!-- Columna izquierda -->
+      <div>
+        <label for="razon">Razón Social</label>
+        <input type="text" id="razon" name="razon">
 
-    <a href="{{ url_for('dashboard') }}" class="btn logout">Regresar</a>
+        <label for="nit">NIT</label>
+        <input type="text" id="nit" name="nit">
+
+        <label for="representante">Representante Legal</label>
+        <input type="text" id="representante" name="representante">
+
+        <label for="sector">Sector Económico</label>
+        <input type="text" id="sector" name="sector">
+
+        <label for="tipo">Tipo de Empresa</label>
+        <input type="text" id="tipo" name="tipo">
+
+        <label for="direccion">Dirección</label>
+        <input type="text" id="direccion" name="direccion">
+
+        <label for="telefono">Teléfonos</label>
+        <input type="text" id="telefono" name="telefono">
+      </div>
+
+      <!-- Columna derecha -->
+      <div>
+        <label for="empleados">Número de Empleados</label>
+        <input type="number" id="empleados" name="empleados">
+
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email">
+
+        <label for="web">Web</label>
+        <input type="url" id="web" name="web">
+
+        <label for="facebook">Facebook</label>
+        <input type="text" id="facebook" name="facebook">
+
+        <label for="instagram">Instagram</label>
+        <input type="text" id="instagram" name="instagram">
+
+        <label for="linkedin">LinkedIn</label>
+        <input type="text" id="linkedin" name="linkedin">
+
+        <label for="tiktok">TikTok</label>
+        <input type="text" id="tiktok" name="tiktok">
+      </div>
+
+      <!-- Botones de acción dentro del form para que el submit funcione -->
+      <div style="grid-column: 1 / -1; display:flex; gap:1rem; justify-content:center; margin-top:1rem;">
+        <button type="submit" class="btn iso9001">Guardar</button>
+        <button type="button" class="btn iso27001">Verificación de Calidad I</button>
+        <button type="button" class="btn iso27001">Verificación de Calidad II</button>
+        <a href="{{ url_for('iso9001') }}" class="btn logout">Regresar</a>
+      </div>
+    </form>
   </div>
 </body>
 </html>

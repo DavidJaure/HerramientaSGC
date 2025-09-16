@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Módulo de Capacitación</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f6fa;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            color: #1e74cb;
+            margin-bottom: 30px;
+        }
+
+        section {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            color: #2f3640;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .subitem {
+            margin-left: 20px;
+            list-style-type: circle;
+        }
+
+        button {
+            background-color: #1e74cb;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #1554a1;
+        }
+
+        input[type="file"] {
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>📂 Módulo de Capacitación</h1>
+
+<!-- 1. Gestión de Competencias -->
+<section>
+    <h2>1. Gestión de Competencias (Cláusula 7.2)</h2>
+    <ul>
+        <li>Base de Datos de Puestos de Trabajo: definir roles con habilidades requeridas.
+            <ul class="subitem">
+                <li>Requerimiento: Crear tabla de roles y competencias en la app.</li>
+            </ul>
+        </li>
+        <li>Competencias Requeridas por Puesto
+            <ul class="subitem">
+                <li>Requerimiento: Formulario para asignar habilidades a cada puesto.</li>
+            </ul>
+        </li>
+        <li>Evaluación de Competencias
+            <ul class="subitem">
+                <li>Requerimiento: Sistema para evaluar empleados y detectar brechas.</li>
+            </ul>
+        </li>
+        <li>Plan de Capacitación
+            <ul class="subitem">
+                <li>Requerimiento: Generar planes automáticos según brechas detectadas.</li>
+            </ul>
+        </li>
+    </ul>
+    <button>Ver Plan de Capacitación</button>
+</section>
+
+<!-- 2. Capacitación y Entrenamiento -->
+<section>
+    <h2>2. Capacitación y Entrenamiento</h2>
+    <ul>
+        <li>Catálogo de Cursos
+            <ul class="subitem">
+                <li>Requerimiento: Lista de cursos disponibles (internos/externos) con descripción.</li>
+            </ul>
+        </li>
+        <li>Calendario de Capacitación
+            <ul class="subitem">
+                <li>Requerimiento: Programar cursos y asignar a empleados.</li>
+            </ul>
+        </li>
+        <li>Seguimiento de Asistencia y Participación
+            <ul class="subitem">
+                <li>Requerimiento: Registrar asistencia y participación de cada empleado.</li>
+            </ul>
+        </li>
+    </ul>
+    <button>Registrar Asistencia</button>
+</section>
+
+<!-- 3. Toma de Conciencia -->
+<section>
+    <h2>3. Toma de Conciencia (Cláusula 7.3)</h2>
+    <ul>
+        <li>Comunicados y Campañas
+            <ul class="subitem">
+                <li>Requerimiento: Publicar noticias y políticas de calidad visibles a todos.</li>
+            </ul>
+        </li>
+        <li>Registro de Evidencias
+            <ul class="subitem">
+                <li>Requerimiento: Subir fotos, actas o listas de asistencia.</li>
+            </ul>
+        </li>
+    </ul>
+    <input type="file" multiple>
+    <button>Subir Evidencias</button>
+</section>
+
+<!-- 4. Evaluación de la Efectividad -->
+<section>
+    <h2>4. Evaluación de la Efectividad</h2>
+    <ul>
+        <li>Exámenes y Cuestionarios
+            <ul class="subitem">
+                <li>Requerimiento: Crear y calificar pruebas online para los empleados.</li>
+            </ul>
+        </li>
+        <li>Evaluación Post-Curso
+            <ul class="subitem">
+                <li>Requerimiento: Vincular desempeño real con indicadores de capacitación.</li>
+            </ul>
+        </li>
+    </ul>
+    <button>Iniciar Evaluación</button>
+</section>
+
+<!-- 5. Biblioteca de Recursos -->
+<section>
+    <h2>5. Biblioteca de Recursos</h2>
+    <ul>
+        <li>Material de Apoyo
+            <ul class="subitem">
+                <li>Requerimiento: Subir y consultar manuales, presentaciones y videos.</li>
+            </ul>
+        </li>
+        <li>Certificados
+            <ul class="subitem">
+                <li>Requerimiento: Guardar digitalmente certificados de empleados.</li>
+            </ul>
+        </li>
+    </ul>
+    <input type="file" multiple>
+    <button>Subir Recursos</button>
+</section>
+
+</body>
+</html>

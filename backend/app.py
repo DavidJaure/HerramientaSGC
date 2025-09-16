@@ -89,6 +89,22 @@ def iso9001_inicio():
         # Luego redirigimos a opcionesISO9001.html
         return render_template("opcionesISO9001.html", datos=datos)
     return render_template("registroISO.html")
+#capacitacion
+@app.route("/iso9001/capacitacion", methods=["GET"])
+def capacitacion():
+    return render_template("capacitacion.html")
+
+#Auditoria
+@app.route("/iso9001/auditoria", methods=["GET"])
+def auditoria():
+    return render_template("auditoria.html")
+
+@app.route("/guardar_checklist", methods=["POST"])
+def guardar_checklist():
+    datos = request.form.to_dict()
+    print(datos)  # ver qué checkboxes fueron marcadas
+    # Aquí puedes guardar en base de datos o Excel
+    return "Checklist guardado correctamente ✅"
 
 
 #implementacion

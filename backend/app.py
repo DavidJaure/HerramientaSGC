@@ -1,7 +1,8 @@
-import os
-from flask import Flask, render_template, request, redirect, url_for, session, send_from_directory
+import os, io
+from flask import Flask, render_template, request, redirect, url_for, session, send_from_directory, send_file
 from urllib.parse import unquote  
-
+from fpdf import FPDF
+from datetime import datetime
 # ----------------------------
 # Configuración
 # ----------------------------
@@ -89,17 +90,53 @@ def logout():
 
 
 
-#ruta subir plantilla implementacion
+PLANTILLAS_DIR = "plantillas/implementacion"  # carpeta donde guardas los archivos
+
+PLANTILLAS_DIR = "plantillas/implementacion"
+
+# Datos de ejemplo: nombre_id (para tu JS) y si está completada
+plantillas_ejemplo = [
+    {"id": "alcance", "nombre": "Plantilla Alcance formato.xlsx", "completada": True},
+    {"id": "mapa", "nombre": "Mapa de Procesos formato.xlsx", "completada": False},
+    {"id": "ficha", "nombre": "Ficha de Procesos formato.xlsx", "completada": True},
+    {"id": "partes", "nombre": "Plantilla Partes interesadas.xlsx", "completada": False},
+    {"id": "foda", "nombre": "Plantilla FODA formato.xlsx", "completada": True},
+    {"id": "pestal", "nombre": "Plantilla PESTAL formato.xlsx", "completada": False},
+    {"id": "fuerzas", "nombre": "Plantilla 5 Fuerzas Porter.xlsx", "completada": True},
+    {"id": "liderazgo1", "nombre": "Checklist Liderazgo.xlsx", "completada": True},
+    {"id": "liderazgo2", "nombre": "Plantilla Política de Calidad.xlsx", "completada": False},
+    {"id": "indicadores1", "nombre": "Multiplantilla Indicadores por Área.xlsx", "completada": True},
+    {"id": "indicadores2", "nombre": "Seguimiento Medición.xlsx", "completada": False},
+    {"id": "operacion1", "nombre": "Planificación y Control Operacional.xlsx", "completada": True},
+    {"id": "planificacion1", "nombre": "Objetivos de Calidad.xlsx", "completada": False},
+    {"id": "soporte1", "nombre": "Medición de Condiciones Físicas.xlsx", "completada": True},
+]
+
+@app.route("/iso9001/implementacion")
+def implementacion():
+    return render_template("implementacion.html", plantillas=plantillas_ejemplo)
+
+# Subir plantilla
 @app.route("/iso9001/subir_plantilla", methods=["POST"])
 def subir_plantilla():
     archivo = request.files.get("archivo")
     if archivo:
-        # Aquí guardas el archivo en tu carpeta correspondiente
         ruta_guardado = os.path.join(PLANTILLAS_DIR, archivo.filename)
         archivo.save(ruta_guardado)
         print("Archivo subido:", archivo.filename)
-    return redirect(url_for("plantillas"))
+        # Actualizar estado en los datos de ejemplo
+        for p in plantillas_ejemplo:
+            if p["nombre"] == archivo.filename:
+                p["completada"] = True
+    return redirect(url_for("implementacion"))
 
+# Descargar plantilla (simulación)
+@app.route("/iso9001/descargar/<nombre>")
+def descargar(nombre):
+    ruta_archivo = os.path.join(PLANTILLAS_DIR, nombre)
+    if os.path.exists(ruta_archivo):
+        return f"Descargando {nombre}..."  # Simulación
+    return "Archivo no encontrado"
 
 # ----------------------------
 # ISO 9001
@@ -166,36 +203,38 @@ def get_capacitaciones():
 
 
 
-@app.route("/iso9001/auditoria")
+# Datos de ejemplo: responsables de cada capítulo
+capacitaciones = [
+    {"responsable": "Carlos Pérez"},
+    {"responsable": "Ana Gómez"},
+    {"responsable": "Luis Ramírez"},
+]
+# Datos de ejemplo: plantillas completadas
+plantillas_implementacion = [
+    {"nombre": "Alcance", "completada": True, "fecha": "2025-09-22"},
+    {"nombre": "Mapa de Procesos", "completada": False, "fecha": ""},
+    {"nombre": "Ficha de Procesos", "completada": True, "fecha": "2025-09-20"},
+    {"nombre": "Partes Interesadas", "completada": True, "fecha": "2025-09-21"},
+]
+
+@app.route("/iso9001/auditoria", methods=["GET", "POST"])
 def auditoria():
-    return render_template("auditoria.html")
+    if request.method == "POST":
+        # Recoger checklist marcado
+        checklist_completado = {key: True if request.form.get(key) == "on" else False for key in request.form if key != "observaciones"}
+        observaciones = request.form.get("observaciones")
+        fecha = datetime.now().strftime("%Y-%m-%d")
+        print("Checklist:", checklist_completado)
+        print("Observaciones:", observaciones)
+        print("Fecha de auditoría:", fecha)
+        # Aquí se podría generar PDF
+        return redirect(url_for("auditoria"))
 
-@app.route("/iso9001/implementacion")
-def implementacion():
-    return render_template("implementacion.html")
-
-@app.route("/guardar_checklist", methods=["POST"])
-def guardar_checklist():
-    datos = request.form.to_dict()
-    print("Checklist recibido:", datos)
-    return "Checklist guardado correctamente ✅"
-
-@app.route("/iso9001/evidencias", methods=["POST"])
-def subir_evidencias():
-    archivo = request.files.get("archivo")
-    if archivo:
-        print("Archivo recibido:", archivo.filename)
-    return "Evidencia subida con éxito."
-
-@app.route("/plantillas")
-def plantillas():
-    return render_template("plantillas.html")
-
-@app.route("/plantillas/<categoria>/<archivo>")
-def descargar_plantilla(categoria, archivo):
-    archivo = unquote(archivo)
-    ruta = os.path.join(PLANTILLAS_DIR, categoria)
-    return send_from_directory(ruta, archivo, as_attachment=True)
+    return render_template(
+        "auditoria.html",
+        plantillas=plantillas_implementacion,
+        fecha=datetime.now().strftime("%Y-%m-%d")
+    )
 
 # ----------------------------
 # ISO 27001 (placeholder)

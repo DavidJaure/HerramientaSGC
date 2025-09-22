@@ -210,16 +210,31 @@
   </div>
 
   <script>
-    function actualizarEstado(nombre) {
-      const estado = document.getElementById("estado-" + nombre);
+  // Inicializar estados de ejemplo desde Flask
+  const plantillas = {{ plantillas | tojson }};
+  plantillas.forEach(p => {
+    const estado = document.getElementById("estado-" + p.id);
+    const btnDescargar = document.getElementById("descargar-" + p.id);
+    if (p.completada) {
       estado.textContent = "Completado";
       estado.classList.remove("text-red-500");
       estado.classList.add("text-green-600");
-
-      const btnDescargar = document.getElementById("descargar-" + nombre);
       btnDescargar.classList.remove("opacity-50", "pointer-events-none");
     }
-  </script>
+  });
+
+  // Función para actualizar manualmente tras subir
+  function actualizarEstado(nombre) {
+    const estado = document.getElementById("estado-" + nombre);
+    estado.textContent = "Completado";
+    estado.classList.remove("text-red-500");
+    estado.classList.add("text-green-600");
+
+    const btnDescargar = document.getElementById("descargar-" + nombre);
+    btnDescargar.classList.remove("opacity-50", "pointer-events-none");
+  }
+</script>
+
 
 </body>
 </html>

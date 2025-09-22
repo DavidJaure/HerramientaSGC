@@ -3,99 +3,97 @@
 <head>
   <meta charset="UTF-8">
   <title>Auditoría ISO 9001:2015</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 font-sans">
 
-  <div class="max-w-5xl mx-auto py-10 px-6">
-    <h1 class="text-3xl font-bold text-blue-700 text-center mb-8">✅ Auditoría ISO 9001:2015 (Capítulos 4 al 10)</h1>
+<div class="max-w-5xl mx-auto py-10 px-6">
+  <h1 class="text-3xl font-bold text-blue-700 text-center mb-8">✅ Auditoría ISO 9001:2015 (Capítulos 4 al 10)</h1>
 
-    <form action="/guardar_checklist" method="POST" class="space-y-6 bg-white shadow-md rounded-xl p-6">
+  <form action="/iso9001/auditoria" method="POST" class="space-y-6 bg-white shadow-md rounded-xl p-6">
 
-      <!-- Capítulo 4 -->
-      <section>
-        <h2 class="text-lg font-semibold bg-gray-200 rounded-md px-3 py-2">📌 Capítulo 4: Contexto de la organización</h2>
-        <div class="space-y-2 mt-3">
-          <label class="flex items-center"><input type="checkbox" name="4.1" class="w-5 h-5 text-blue-600"><span class="ml-2">4.1 ¿La organización ha identificado factores internos y externos que afectan al SGC?</span></label>
-          <label class="flex items-center"><input type="checkbox" name="4.2" class="w-5 h-5 text-blue-600"><span class="ml-2">4.2 ¿Se han identificado las partes interesadas y sus necesidades?</span></label>
-          <label class="flex items-center"><input type="checkbox" name="4.3" class="w-5 h-5 text-blue-600"><span class="ml-2">4.3 ¿Se definió el alcance del SGC, considerando productos, servicios y exclusiones?</span></label>
-          <label class="flex items-center"><input type="checkbox" name="4.4" class="w-5 h-5 text-blue-600"><span class="ml-2">4.4 ¿Existe un mapa de procesos con entradas, salidas, secuencia e interacciones?</span></label>
-        </div>
-      </section>
-
-      <!-- Capítulo 5 -->
-      <section>
-        <h2 class="text-lg font-semibold bg-gray-200 rounded-md px-3 py-2">📌 Capítulo 5: Liderazgo</h2>
-        <div class="space-y-2 mt-3">
-          <label class="flex items-center"><input type="checkbox" name="5.1" class="w-5 h-5 text-blue-600"><span class="ml-2">5.1 ¿La alta dirección demuestra liderazgo y compromiso con el SGC?</span></label>
-          <label class="flex items-center"><input type="checkbox" name="5.2" class="w-5 h-5 text-blue-600"><span class="ml-2">5.2 ¿Está definida y comunicada la política de calidad?</span></label>
-          <label class="flex items-center"><input type="checkbox" name="5.3" class="w-5 h-5 text-blue-600"><span class="ml-2">5.3 ¿Se han asignado roles, responsabilidades y autoridades dentro del SGC?</span></label>
-        </div>
-      </section>
-
-      <!-- Capítulo 6 -->
-      <section>
-        <h2 class="text-lg font-semibold bg-gray-200 rounded-md px-3 py-2">📌 Capítulo 6: Planificación</h2>
-        <div class="space-y-2 mt-3">
-          <label class="flex items-center"><input type="checkbox" name="6.1" class="w-5 h-5 text-blue-600"><span class="ml-2">6.1 ¿Se han identificado riesgos y oportunidades? ¿Existe una matriz de riesgos?</span></label>
-          <label class="flex items-center"><input type="checkbox" name="6.2" class="w-5 h-5 text-blue-600"><span class="ml-2">6.2 ¿Están definidos objetivos de calidad, medibles y con seguimiento?</span></label>
-          <label class="flex items-center"><input type="checkbox" name="6.3" class="w-5 h-5 text-blue-600"><span class="ml-2">6.3 ¿Se planifican cambios al SGC de manera controlada?</span></label>
-        </div>
-      </section>
-
-      <!-- Capítulo 7 -->
-      <section>
-        <h2 class="text-lg font-semibold bg-gray-200 rounded-md px-3 py-2">📌 Capítulo 7: Soporte</h2>
-        <div class="space-y-2 mt-3">
-          <label class="flex items-center"><input type="checkbox" name="7.1" class="w-5 h-5 text-blue-600"><span class="ml-2">7.1 ¿Se cuenta con recursos adecuados (infraestructura, ambiente, tecnología)?</span></label>
-          <label class="flex items-center"><input type="checkbox" name="7.2" class="w-5 h-5 text-blue-600"><span class="ml-2">7.2 ¿El personal es competente y hay registros de capacitación?</span></label>
-          <label class="flex items-center"><input type="checkbox" name="7.3" class="w-5 h-5 text-blue-600"><span class="ml-2">7.3 ¿Se asegura la toma de conciencia sobre política y objetivos de calidad?</span></label>
-          <label class="flex items-center"><input type="checkbox" name="7.4" class="w-5 h-5 text-blue-600"><span class="ml-2">7.4 ¿Se mantiene comunicación interna y externa efectiva?</span></label>
-          <label class="flex items-center"><input type="checkbox" name="7.5" class="w-5 h-5 text-blue-600"><span class="ml-2">7.5 ¿La información documentada (procedimientos, registros) está controlada?</span></label>
-        </div>
-      </section>
-
-      <!-- Capítulo 8 -->
-      <section>
-        <h2 class="text-lg font-semibold bg-gray-200 rounded-md px-3 py-2">📌 Capítulo 8: Operación</h2>
-        <div class="space-y-2 mt-3">
-          <label class="flex items-center"><input type="checkbox" name="8.1" class="w-5 h-5 text-blue-600"><span class="ml-2">8.1 ¿Se planifican y controlan las operaciones bajo condiciones controladas?</span></label>
-          <label class="flex items-center"><input type="checkbox" name="8.2" class="w-5 h-5 text-blue-600"><span class="ml-2">8.2 ¿Se gestionan adecuadamente los requisitos del cliente (contratos, pedidos)?</span></label>
-          <label class="flex items-center"><input type="checkbox" name="8.3" class="w-5 h-5 text-blue-600"><span class="ml-2">8.3 ¿Hay control en el diseño y desarrollo (cuando aplica)?</span></label>
-          <label class="flex items-center"><input type="checkbox" name="8.4" class="w-5 h-5 text-blue-600"><span class="ml-2">8.4 ¿Los proveedores externos son evaluados y controlados?</span></label>
-          <label class="flex items-center"><input type="checkbox" name="8.5" class="w-5 h-5 text-blue-600"><span class="ml-2">8.5 ¿La producción/servicio cumple requisitos definidos (instrucciones, equipos)?</span></label>
-          <label class="flex items-center"><input type="checkbox" name="8.6" class="w-5 h-5 text-blue-600"><span class="ml-2">8.6 ¿Se realizan controles de liberación de productos/servicios?</span></label>
-          <label class="flex items-center"><input type="checkbox" name="8.7" class="w-5 h-5 text-blue-600"><span class="ml-2">8.7 ¿Los productos/servicios no conformes se controlan y registran?</span></label>
-        </div>
-      </section>
-
-      <!-- Capítulo 9 -->
-      <section>
-        <h2 class="text-lg font-semibold bg-gray-200 rounded-md px-3 py-2">📌 Capítulo 9: Evaluación del desempeño</h2>
-        <div class="space-y-2 mt-3">
-          <label class="flex items-center"><input type="checkbox" name="9.1" class="w-5 h-5 text-blue-600"><span class="ml-2">9.1 ¿Se hace seguimiento, medición y análisis de indicadores de calidad?</span></label>
-          <label class="flex items-center"><input type="checkbox" name="9.2" class="w-5 h-5 text-blue-600"><span class="ml-2">9.2 ¿Se realizan auditorías internas planificadas y con registros?</span></label>
-          <label class="flex items-center"><input type="checkbox" name="9.3" class="w-5 h-5 text-blue-600"><span class="ml-2">9.3 ¿La alta dirección realiza la revisión por la dirección con entradas/salidas claras?</span></label>
-        </div>
-      </section>
-
-      <!-- Capítulo 10 -->
-      <section>
-        <h2 class="text-lg font-semibold bg-gray-200 rounded-md px-3 py-2">📌 Capítulo 10: Mejora</h2>
-        <div class="space-y-2 mt-3">
-          <label class="flex items-center"><input type="checkbox" name="10.1" class="w-5 h-5 text-blue-600"><span class="ml-2">10.1 ¿Se gestionan oportunidades de mejora continuamente?</span></label>
-          <label class="flex items-center"><input type="checkbox" name="10.2" class="w-5 h-5 text-blue-600"><span class="ml-2">10.2 ¿Se aplican acciones correctivas para tratar no conformidades?</span></label>
-          <label class="flex items-center"><input type="checkbox" name="10.3" class="w-5 h-5 text-blue-600"><span class="ml-2">10.3 ¿Se mejora continuamente la eficacia del SGC?</span></label>
-        </div>
-      </section>
-
-      <!-- Botones -->
-      <div class="flex justify-center gap-4 pt-6">
-        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg">💾 Guardar Checklist</button>
-        <a href="/generar_pdf" class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg">📄 Generar Informe PDF</a>
+    <!-- Capítulos 4 al 10 (Checklist completo) -->
+    {% for cap, items in [
+      ("4: Contexto de la organización", [
+        ("4.1", "¿La organización ha identificado factores internos y externos que afectan al SGC?"),
+        ("4.2", "¿Se han identificado las partes interesadas y sus necesidades?"),
+        ("4.3", "¿Se definió el alcance del SGC, considerando productos, servicios y exclusiones?"),
+        ("4.4", "¿Existe un mapa de procesos con entradas, salidas, secuencia e interacciones?")
+      ]),
+      ("5: Liderazgo", [
+        ("5.1", "¿La alta dirección demuestra liderazgo y compromiso con el SGC?"),
+        ("5.2", "¿Está definida y comunicada la política de calidad?"),
+        ("5.3", "¿Se han asignado roles, responsabilidades y autoridades dentro del SGC?")
+      ]),
+      ("6: Planificación", [
+        ("6.1", "¿Se han identificado riesgos y oportunidades? ¿Existe una matriz de riesgos?"),
+        ("6.2", "¿Están definidos objetivos de calidad, medibles y con seguimiento?"),
+        ("6.3", "¿Se planifican cambios al SGC de manera controlada?")
+      ]),
+      ("7: Soporte", [
+        ("7.1", "¿Se cuenta con recursos adecuados (infraestructura, ambiente, tecnología)?"),
+        ("7.2", "¿El personal es competente y hay registros de capacitación?"),
+        ("7.3", "¿Se asegura la toma de conciencia sobre política y objetivos de calidad?"),
+        ("7.4", "¿Se mantiene comunicación interna y externa efectiva?"),
+        ("7.5", "¿La información documentada (procedimientos, registros) está controlada?")
+      ]),
+      ("8: Operación", [
+        ("8.1", "¿Se planifican y controlan las operaciones bajo condiciones controladas?"),
+        ("8.2", "¿Se gestionan adecuadamente los requisitos del cliente (contratos, pedidos)?"),
+        ("8.3", "¿Hay control en el diseño y desarrollo (cuando aplica)?"),
+        ("8.4", "¿Los proveedores externos son evaluados y controlados?"),
+        ("8.5", "¿La producción/servicio cumple requisitos definidos (instrucciones, equipos)?"),
+        ("8.6", "¿Se realizan controles de liberación de productos/servicios?"),
+        ("8.7", "¿Los productos/servicios no conformes se controlan y registran?")
+      ]),
+      ("9: Evaluación del desempeño", [
+        ("9.1", "¿Se hace seguimiento, medición y análisis de indicadores de calidad?"),
+        ("9.2", "¿Se realizan auditorías internas planificadas y con registros?"),
+        ("9.3", "¿La alta dirección realiza la revisión por la dirección con entradas/salidas claras?")
+      ]),
+      ("10: Mejora", [
+        ("10.1", "¿Se gestionan oportunidades de mejora continuamente?"),
+        ("10.2", "¿Se aplican acciones correctivas para tratar no conformidades?"),
+        ("10.3", "¿Se mejora continuamente la eficacia del SGC?")
+      ])
+    ] %}
+    <section>
+      <h2 class="text-lg font-semibold bg-gray-200 rounded-md px-3 py-2 mt-4">📌 Capítulo {{ cap }}</h2>
+      <div class="space-y-2 mt-2">
+        {% for id, texto in items %}
+        <label class="flex items-center"><input type="checkbox" name="{{ id }}" class="w-5 h-5 text-blue-600"><span class="ml-2">{{ id }} {{ texto }}</span></label>
+        {% endfor %}
       </div>
-    </form>
-  </div>
+    </section>
+    {% endfor %}
+
+    <!-- Observaciones -->
+    <section>
+      <h2 class="text-xl font-semibold mt-6 mb-2">Observaciones</h2>
+      <textarea name="observaciones" rows="4" class="w-full border rounded-md p-2" placeholder="Escribe tus observaciones aquí..."></textarea>
+    </section>
+
+    <!-- Plantillas completadas -->
+    <h1 class="text-2xl font-bold text-center mt-6 mb-4">📂 Plantillas de Implementación</h1>
+    <ul class="space-y-3 max-w-xl mx-auto">
+      {% for plantilla in plantillas %}
+        <li class="p-4 rounded-lg {{ 'bg-green-200 text-green-800' if plantilla.completada else 'bg-red-200 text-red-800' }}">
+          {{ plantilla.nombre }}
+          {% if plantilla.completada %}
+            <a href="/descargar/{{ plantilla.nombre }}" class="ml-4 px-3 py-1 bg-green-600 text-white rounded hover:bg-green-700">📥 Descargar</a>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+
+    <!-- Botones -->
+    <div class="flex justify-center gap-4 pt-6">
+      <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg">💾 Guardar Checklist</button>
+      <a href="/generar_pdf" class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg">📄 Generar Informe PDF</a>
+    </div>
+
+  </form>
+</div>
 
 </body>
 </html>

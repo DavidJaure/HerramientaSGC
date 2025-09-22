@@ -139,6 +139,19 @@ def descargar(nombre):
         return f"Descargando {nombre}..."  # Simulación
     return "Archivo no encontrado"
 
+@app.route("/iso9001/descargar/<categoria>/<archivo>")
+def descargar_plantilla(categoria, archivo):
+    ruta_archivo = os.path.join(FRONTEND_DIR, "plantillasISO9001", categoria, archivo)
+    if os.path.exists(ruta_archivo):
+        return send_from_directory(
+            os.path.join(FRONTEND_DIR, "plantillasISO9001", categoria),
+            archivo,
+            as_attachment=True
+        )
+    return "Archivo no encontrado"
+
+
+
 # ----------------------------
 # ISO 9001
 # ----------------------------

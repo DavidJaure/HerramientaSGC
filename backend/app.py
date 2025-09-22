@@ -87,6 +87,20 @@ def logout():
     session.clear()
     return redirect(url_for("home"))
 
+
+
+#ruta subir plantilla implementacion
+@app.route("/iso9001/subir_plantilla", methods=["POST"])
+def subir_plantilla():
+    archivo = request.files.get("archivo")
+    if archivo:
+        # Aquí guardas el archivo en tu carpeta correspondiente
+        ruta_guardado = os.path.join(PLANTILLAS_DIR, archivo.filename)
+        archivo.save(ruta_guardado)
+        print("Archivo subido:", archivo.filename)
+    return redirect(url_for("plantillas"))
+
+
 # ----------------------------
 # ISO 9001
 # ----------------------------

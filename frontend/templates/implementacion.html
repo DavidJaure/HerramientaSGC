@@ -2,166 +2,137 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Implementación ISO 9001</title>
+  <title>Plantillas ISO 9001</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-50 min-h-screen flex flex-col items-center py-10">
+<body class="bg-gray-100 min-h-screen p-8">
 
-  <!-- Título -->
-  <h1 class="text-4xl font-extrabold text-blue-700 mb-8">Implementación ISO 9001</h1>
+  <div class="max-w-4xl mx-auto">
+    <h1 class="text-3xl font-bold text-gray-800 mb-6 text-center">Plantillas ISO 9001</h1>
 
-  <!-- Contenedor principal -->
-  <div class="w-full max-w-5xl space-y-6">
-
-    <!-- CONTEXTO -->
-    <details class="group border rounded-lg shadow hover:shadow-lg transition">
-      <summary class="cursor-pointer bg-gradient-to-r from-blue-600 to-blue-500 text-white px-5 py-3 rounded-t-lg text-lg font-semibold flex justify-between items-center">
-        Contexto
-        <span class="transition group-open:rotate-180">▼</span>
-      </summary>
-      <div class="p-5 space-y-4 bg-white rounded-b-lg">
-        <div class="flex items-center justify-between border-b pb-2">
-          <span>Mapa de Procesos</span>
-          <div class="flex space-x-2">
-            <a href="/descargar/mapa" class="px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded">Descargar</a>
-            <input type="file" class="hidden" id="uploadMapa">
-            <label for="uploadMapa" class="px-3 py-1 bg-yellow-500 hover:bg-yellow-600 text-white rounded cursor-pointer">Subir</label>
-            <span class="px-3 py-1 rounded bg-red-500 text-white">Pendiente</span>
-          </div>
-        </div>
-        <div class="flex items-center justify-between">
-          <span>Análisis FODA</span>
-          <div class="flex space-x-2">
-            <a href="/descargar/foda" class="px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded">Descargar</a>
-            <input type="file" class="hidden" id="uploadFoda">
-            <label for="uploadFoda" class="px-3 py-1 bg-yellow-500 hover:bg-yellow-600 text-white rounded cursor-pointer">Subir</label>
-            <span class="px-3 py-1 rounded bg-green-500 text-white">Completado</span>
-          </div>
-        </div>
+    <!-- Plantilla: Contexto -->
+    <div class="bg-white rounded-xl shadow-lg p-6 mb-6 flex flex-col md:flex-row md:items-center justify-between">
+      <div class="mb-4 md:mb-0">
+        <h2 class="text-xl font-semibold text-gray-700">Plantilla: Contexto</h2>
+        <p class="text-sm text-gray-500 mt-1">Estado: <span id="estado-contexto" class="font-bold text-red-500">Pendiente</span></p>
       </div>
-    </details>
-
-    <!-- LIDERAZGO -->
-    <details class="group border rounded-lg shadow hover:shadow-lg transition">
-      <summary class="cursor-pointer bg-gradient-to-r from-blue-600 to-blue-500 text-white px-5 py-3 rounded-t-lg text-lg font-semibold flex justify-between items-center">
-        Liderazgo
-        <span class="transition group-open:rotate-180">▼</span>
-      </summary>
-      <div class="p-5 space-y-4 bg-white rounded-b-lg">
-        <div class="flex items-center justify-between border-b pb-2">
-          <span>Política de Calidad</span>
-          <div class="flex space-x-2">
-            <a href="/descargar/politica" class="px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded">Descargar</a>
-            <input type="file" class="hidden" id="uploadPolitica">
-            <label for="uploadPolitica" class="px-3 py-1 bg-yellow-500 hover:bg-yellow-600 text-white rounded cursor-pointer">Subir</label>
-            <span class="px-3 py-1 rounded bg-red-500 text-white">Pendiente</span>
-          </div>
-        </div>
-        <div class="flex items-center justify-between">
-          <span>Roles y Responsabilidades</span>
-          <div class="flex space-x-2">
-            <a href="/descargar/roles" class="px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded">Descargar</a>
-            <input type="file" class="hidden" id="uploadRoles">
-            <label for="uploadRoles" class="px-3 py-1 bg-yellow-500 hover:bg-yellow-600 text-white rounded cursor-pointer">Subir</label>
-            <span class="px-3 py-1 rounded bg-red-500 text-white">Pendiente</span>
-          </div>
-        </div>
+      <div class="flex flex-col sm:flex-row gap-3">
+        <a href="#" class="px-4 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition text-center">
+          Descargar Original
+        </a>
+        <input type="file" id="file-contexto" class="hidden" onchange="actualizarEstado('contexto')">
+        <button type="button" onclick="document.getElementById('file-contexto').click()" 
+                id="upload-contexto"
+                class="px-4 py-2 bg-gray-400 text-white rounded-lg shadow hover:bg-gray-500 transition">
+          Subir Actualizada
+        </button>
+        <a href="#" id="descargar-contexto" class="px-4 py-2 bg-green-600 text-white rounded-lg shadow hover:bg-green-700 transition text-center opacity-50 pointer-events-none">
+          Descargar Actualizada
+        </a>
       </div>
-    </details>
+    </div>
 
-    <!-- PLANIFICACIÓN -->
-    <details class="group border rounded-lg shadow hover:shadow-lg transition">
-      <summary class="cursor-pointer bg-gradient-to-r from-blue-600 to-blue-500 text-white px-5 py-3 rounded-t-lg text-lg font-semibold flex justify-between items-center">
-        Planificación
-        <span class="transition group-open:rotate-180">▼</span>
-      </summary>
-      <div class="p-5 space-y-4 bg-white rounded-b-lg">
-        <div class="flex items-center justify-between border-b pb-2">
-          <span>Plan de Riesgos y Oportunidades</span>
-          <div class="flex space-x-2">
-            <a href="/descargar/riesgos" class="px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded">Descargar</a>
-            <input type="file" class="hidden" id="uploadRiesgos">
-            <label for="uploadRiesgos" class="px-3 py-1 bg-yellow-500 hover:bg-yellow-600 text-white rounded cursor-pointer">Subir</label>
-            <span class="px-3 py-1 rounded bg-green-500 text-white">Completado</span>
-          </div>
-        </div>
-        <div class="flex items-center justify-between">
-          <span>Objetivos de Calidad</span>
-          <div class="flex space-x-2">
-            <a href="/descargar/objetivos" class="px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded">Descargar</a>
-            <input type="file" class="hidden" id="uploadObjetivos">
-            <label for="uploadObjetivos" class="px-3 py-1 bg-yellow-500 hover:bg-yellow-600 text-white rounded cursor-pointer">Subir</label>
-            <span class="px-3 py-1 rounded bg-red-500 text-white">Pendiente</span>
-          </div>
-        </div>
+    <!-- Plantilla: Liderazgo -->
+    <div class="bg-white rounded-xl shadow-lg p-6 mb-6 flex flex-col md:flex-row md:items-center justify-between">
+      <div class="mb-4 md:mb-0">
+        <h2 class="text-xl font-semibold text-gray-700">Plantilla: Liderazgo</h2>
+        <p class="text-sm text-gray-500 mt-1">Estado: <span id="estado-liderazgo" class="font-bold text-red-500">Pendiente</span></p>
       </div>
-    </details>
+      <div class="flex flex-col sm:flex-row gap-3">
+        <a href="#" class="px-4 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition text-center">
+          Descargar Original
+        </a>
+        <input type="file" id="file-liderazgo" class="hidden" onchange="actualizarEstado('liderazgo')">
+        <button type="button" onclick="document.getElementById('file-liderazgo').click()" 
+                id="upload-liderazgo"
+                class="px-4 py-2 bg-gray-400 text-white rounded-lg shadow hover:bg-gray-500 transition">
+          Subir Actualizada
+        </button>
+        <a href="#" id="descargar-liderazgo" class="px-4 py-2 bg-green-600 text-white rounded-lg shadow hover:bg-green-700 transition text-center opacity-50 pointer-events-none">
+          Descargar Actualizada
+        </a>
+      </div>
+    </div>
 
-    <!-- SOPORTE -->
-    <details class="group border rounded-lg shadow hover:shadow-lg transition">
-      <summary class="cursor-pointer bg-gradient-to-r from-blue-600 to-blue-500 text-white px-5 py-3 rounded-t-lg text-lg font-semibold flex justify-between items-center">
-        Soporte
-        <span class="transition group-open:rotate-180">▼</span>
-      </summary>
-      <div class="p-5 space-y-4 bg-white rounded-b-lg">
-        <div class="flex items-center justify-between border-b pb-2">
-          <span>Gestión de Recursos</span>
-          <div class="flex space-x-2">
-            <a href="/descargar/recursos" class="px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded">Descargar</a>
-            <input type="file" class="hidden" id="uploadRecursos">
-            <label for="uploadRecursos" class="px-3 py-1 bg-yellow-500 hover:bg-yellow-600 text-white rounded cursor-pointer">Subir</label>
-            <span class="px-3 py-1 rounded bg-red-500 text-white">Pendiente</span>
-          </div>
-        </div>
-        <div class="flex items-center justify-between">
-          <span>Competencias y Capacitación</span>
-          <div class="flex space-x-2">
-            <a href="/descargar/competencias" class="px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded">Descargar</a>
-            <input type="file" class="hidden" id="uploadCompetencias">
-            <label for="uploadCompetencias" class="px-3 py-1 bg-yellow-500 hover:bg-yellow-600 text-white rounded cursor-pointer">Subir</label>
-            <span class="px-3 py-1 rounded bg-red-500 text-white">Pendiente</span>
-          </div>
-        </div>
+    <!-- Plantilla: Planificación -->
+    <div class="bg-white rounded-xl shadow-lg p-6 mb-6 flex flex-col md:flex-row md:items-center justify-between">
+      <div class="mb-4 md:mb-0">
+        <h2 class="text-xl font-semibold text-gray-700">Plantilla: Planificación</h2>
+        <p class="text-sm text-gray-500 mt-1">Estado: <span id="estado-planificacion" class="font-bold text-red-500">Pendiente</span></p>
       </div>
-    </details>
+      <div class="flex flex-col sm:flex-row gap-3">
+        <a href="#" class="px-4 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition text-center">
+          Descargar Original
+        </a>
+        <input type="file" id="file-planificacion" class="hidden" onchange="actualizarEstado('planificacion')">
+        <button type="button" onclick="document.getElementById('file-planificacion').click()" 
+                id="upload-planificacion"
+                class="px-4 py-2 bg-gray-400 text-white rounded-lg shadow hover:bg-gray-500 transition">
+          Subir Actualizada
+        </button>
+        <a href="#" id="descargar-planificacion" class="px-4 py-2 bg-green-600 text-white rounded-lg shadow hover:bg-green-700 transition text-center opacity-50 pointer-events-none">
+          Descargar Actualizada
+        </a>
+      </div>
+    </div>
 
-    <!-- EVALUACIÓN DEL DESEMPEÑO -->
-    <details class="group border rounded-lg shadow hover:shadow-lg transition">
-      <summary class="cursor-pointer bg-gradient-to-r from-blue-600 to-blue-500 text-white px-5 py-3 rounded-t-lg text-lg font-semibold flex justify-between items-center">
-        Evaluación del Desempeño
-        <span class="transition group-open:rotate-180">▼</span>
-      </summary>
-      <div class="p-5 space-y-4 bg-white rounded-b-lg">
-        <div class="flex items-center justify-between border-b pb-2">
-          <span>Encuesta de Satisfacción</span>
-          <div class="flex space-x-2">
-            <a href="/descargar/encuesta" class="px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded">Descargar</a>
-            <input type="file" class="hidden" id="uploadEncuesta">
-            <label for="uploadEncuesta" class="px-3 py-1 bg-yellow-500 hover:bg-yellow-600 text-white rounded cursor-pointer">Subir</label>
-            <span class="px-3 py-1 rounded bg-green-500 text-white">Completado</span>
-          </div>
-        </div>
-        <div class="flex items-center justify-between">
-          <span>Revisión por la Dirección</span>
-          <div class="flex space-x-2">
-            <a href="/descargar/revision" class="px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded">Descargar</a>
-            <input type="file" class="hidden" id="uploadRevision">
-            <label for="uploadRevision" class="px-3 py-1 bg-yellow-500 hover:bg-yellow-600 text-white rounded cursor-pointer">Subir</label>
-            <span class="px-3 py-1 rounded bg-red-500 text-white">Pendiente</span>
-          </div>
-        </div>
+    <!-- Plantilla: Soporte -->
+    <div class="bg-white rounded-xl shadow-lg p-6 mb-6 flex flex-col md:flex-row md:items-center justify-between">
+      <div class="mb-4 md:mb-0">
+        <h2 class="text-xl font-semibold text-gray-700">Plantilla: Soporte</h2>
+        <p class="text-sm text-gray-500 mt-1">Estado: <span id="estado-soporte" class="font-bold text-red-500">Pendiente</span></p>
       </div>
-    </details>
+      <div class="flex flex-col sm:flex-row gap-3">
+        <a href="#" class="px-4 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition text-center">
+          Descargar Original
+        </a>
+        <input type="file" id="file-soporte" class="hidden" onchange="actualizarEstado('soporte')">
+        <button type="button" onclick="document.getElementById('file-soporte').click()" 
+                id="upload-soporte"
+                class="px-4 py-2 bg-gray-400 text-white rounded-lg shadow hover:bg-gray-500 transition">
+          Subir Actualizada
+        </button>
+        <a href="#" id="descargar-soporte" class="px-4 py-2 bg-green-600 text-white rounded-lg shadow hover:bg-green-700 transition text-center opacity-50 pointer-events-none">
+          Descargar Actualizada
+        </a>
+      </div>
+    </div>
+
+    <!-- Plantilla: Evaluación de Desempeño -->
+    <div class="bg-white rounded-xl shadow-lg p-6 mb-6 flex flex-col md:flex-row md:items-center justify-between">
+      <div class="mb-4 md:mb-0">
+        <h2 class="text-xl font-semibold text-gray-700">Plantilla: Evaluación de Desempeño</h2>
+        <p class="text-sm text-gray-500 mt-1">Estado: <span id="estado-desempeno" class="font-bold text-red-500">Pendiente</span></p>
+      </div>
+      <div class="flex flex-col sm:flex-row gap-3">
+        <a href="#" class="px-4 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition text-center">
+          Descargar Original
+        </a>
+        <input type="file" id="file-desempeno" class="hidden" onchange="actualizarEstado('desempeno')">
+        <button type="button" onclick="document.getElementById('file-desempeno').click()" 
+                id="upload-desempeno"
+                class="px-4 py-2 bg-gray-400 text-white rounded-lg shadow hover:bg-gray-500 transition">
+          Subir Actualizada
+        </button>
+        <a href="#" id="descargar-desempeno" class="px-4 py-2 bg-green-600 text-white rounded-lg shadow hover:bg-green-700 transition text-center opacity-50 pointer-events-none">
+          Descargar Actualizada
+        </a>
+      </div>
+    </div>
 
   </div>
 
-  <!-- BOTONES PRINCIPALES -->
-  <div class="mt-10 flex flex-wrap gap-4 justify-center">
-    <button class="px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg shadow">Guardar</button>
-    <a href="/frontend/templates/capacitacion.html" class="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-lg shadow">Ir a Capacitación</a>
-    <a href="/frontend/templates/auditoria.html" class="px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg shadow">Ir a Auditoría</a>
-    <a href="/frontend/templates/opcionesISO9001.html" class="px-6 py-3 bg-gray-500 hover:bg-gray-600 text-white font-semibold rounded-lg shadow">Regresar</a>
-  </div>
+  <script>
+    function actualizarEstado(nombre) {
+      const estado = document.getElementById("estado-" + nombre);
+      estado.textContent = "Completado";
+      estado.classList.remove("text-red-500");
+      estado.classList.add("text-green-600");
+
+      const btnDescargar = document.getElementById("descargar-" + nombre);
+      btnDescargar.classList.remove("opacity-50", "pointer-events-none");
+    }
+  </script>
 
 </body>
 </html>

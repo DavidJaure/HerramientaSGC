@@ -4,18 +4,22 @@
 <meta charset="UTF-8">
 <title>Informe Auditoría ISO 9001</title>
 <style>
-body { font-family: Arial, sans-serif; margin: 25px; color: #333; background: #f8fafc; }
-h1 { text-align: center; color: #1E3A8A; }
+body { font-family: 'Arial', sans-serif; margin: 20px; color: #333; background: #f3f4f6; }
+h1 { text-align: center; background-color: #1E40AF; color: white; padding: 15px 0; border-radius: 8px; }
 h2 { color: #1D4ED8; margin-top: 20px; margin-bottom: 5px; }
-.card { background: #ffffff; border-radius: 10px; padding: 15px; margin-bottom: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-.checkbox-item { margin: 5px 0; }
-.checkbox-item span { margin-left: 5px; }
-.status-completed { color: green; font-weight: bold; }
-.status-pending { color: red; font-weight: bold; }
+.card { background: #ffffff; border-radius: 10px; padding: 15px; margin-bottom: 15px; box-shadow: 0 3px 6px rgba(0,0,0,0.1); }
+.info-item { margin: 3px 0; }
+.checkbox-item { margin: 5px 0; display: flex; align-items: center; }
+.checkbox-item span { margin-left: 8px; }
+.status-completed { color: #16A34A; font-weight: bold; }
+.status-pending { color: #DC2626; font-weight: bold; }
 .table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-.table th, .table td { border: 1px solid #ccc; padding: 8px; text-align: center; }
-.table th { background-color: #DBEAFE; color: #1D4ED8; }
-.observaciones { margin-top: 15px; padding: 12px; border: 1px solid #ccc; border-radius: 6px; background: #EFF6FF; }
+.table th, .table td { border: 1px solid #cbd5e1; padding: 8px; text-align: center; font-size: 12px; }
+.table th { background-color: #e0e7ff; color: #1D4ED8; font-weight: bold; }
+.table tr:nth-child(even) { background-color: #f9fafb; }
+.observaciones { margin-top: 15px; padding: 12px; border-left: 4px solid #1D4ED8; background: #DBEAFE; border-radius: 6px; font-size: 13px; }
+.section-title { border-bottom: 2px solid #1D4ED8; padding-bottom: 4px; margin-bottom: 10px; font-size: 14px; font-weight: bold; }
+.icon { font-size: 14px; }
 </style>
 </head>
 <body>
@@ -23,6 +27,22 @@ h2 { color: #1D4ED8; margin-top: 20px; margin-bottom: 5px; }
 <h1>✅ Informe Auditoría ISO 9001:2015</h1>
 <p><strong>Fecha de auditoría:</strong> {{ fecha }}</p>
 
+<!-- Datos del auditor -->
+<div class="card">
+  <div class="section-title">Datos del Auditor</div>
+  <p class="info-item"><strong>Nombre:</strong> {{ auditor.nombre }}</p>
+  <p class="info-item"><strong>Correo:</strong> {{ auditor.correo }}</p>
+</div>
+
+<!-- Datos de la empresa -->
+<div class="card">
+  <div class="section-title">Datos de la Empresa</div>
+  {% for clave, valor in empresa.items() %}
+  <p class="info-item"><strong>{{ clave }}:</strong> {{ valor }}</p>
+  {% endfor %}
+</div>
+
+<!-- Checklist completo -->
 <h2>Checklist de Auditoría</h2>
 {% set capítulos = {
 "4: Contexto de la organización": ["4.1","4.2","4.3","4.4"],
@@ -35,18 +55,19 @@ h2 { color: #1D4ED8; margin-top: 20px; margin-bottom: 5px; }
 } %}
 {% for cap, items in capítulos.items() %}
 <div class="card">
-  <h2>📌 Capítulo {{ cap }}</h2>
+  <div class="section-title">📌 Capítulo {{ cap }}</div>
   {% for item in items %}
     <div class="checkbox-item">
-      <span>{{ item }} - </span>
+      <span class="icon">{{ '✔' if checklist[item] else '✖' }}</span>
       <span class="{{ 'status-completed' if checklist[item] else 'status-pending' }}">
-        {{ '✔ Completado' if checklist[item] else '✖ Pendiente' }}
+        {{ item }} - {{ 'Completado' if checklist[item] else 'Pendiente' }}
       </span>
     </div>
   {% endfor %}
 </div>
 {% endfor %}
 
+<!-- Plantillas -->
 <h2>Plantillas de Implementación</h2>
 <table class="table">
   <thead>
@@ -69,6 +90,7 @@ h2 { color: #1D4ED8; margin-top: 20px; margin-bottom: 5px; }
   </tbody>
 </table>
 
+<!-- Observaciones -->
 <h2>Observaciones</h2>
 <div class="observaciones">
   {{ observaciones }}

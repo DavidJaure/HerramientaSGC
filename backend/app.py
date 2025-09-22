@@ -242,9 +242,31 @@ checklist_example = {
     "5.1": True, "5.2": False, "5.3": True,
 }
 
-
 @app.route("/generar_pdf")
 def generar_pdf():
+    # Datos de auditor (ejemplo)
+    auditor = {
+        "nombre": "Luis",
+        "correo": "Luis@gmail.com"
+    }
+
+    # Datos de la empresa
+    empresa = {
+        "Registro": "ISO 9001",
+        "Razón Social": "Empresa Ejemplo S.A.S.",
+        "NIT": "900.123.456-7",
+        "Representante Legal": "Juan Pérez",
+        "Sector Económico": "Tecnología",
+        "Tipo de Empresa": "Sociedad por Acciones Simplificada",
+        "Dirección": "Calle Falsa 123, Bogotá",
+        "Teléfonos": "+57 1 2345678 / +57 300 1234567",
+        "Número de Empleados": "45",
+        "E-mail": "contacto@empresa.com",
+        "Web": "www.empresa.com",
+        "Facebook": "facebook.com/empresa",
+        "Instagram": "instagram.com/empresa"
+    }
+
     # Checklist completo
     checklist_example = {
         "4.1": True, "4.2": False, "4.3": True, "4.4": True,
@@ -270,6 +292,8 @@ def generar_pdf():
     # Renderizar HTML para PDF
     html_content = render_template(
         "auditoria_pdf.html",
+        auditor=auditor,
+        empresa=empresa,
         checklist=checklist_example,
         plantillas=plantillas_implementacion,
         observaciones=observaciones,
@@ -279,7 +303,7 @@ def generar_pdf():
     pdf = HTML(string=html_content).write_pdf()
     response = make_response(pdf)
     response.headers['Content-Type'] = 'application/pdf'
-    response.headers['Content-Disposition'] = 'attachment; filename=Informe_Auditoria_Completo.pdf'
+    response.headers['Content-Disposition'] = 'attachment; filename=Informe_Auditoria_Empresa.pdf'
     return response
 
 

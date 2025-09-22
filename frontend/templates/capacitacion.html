@@ -1,179 +1,103 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Módulo de Capacitación</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f5f6fa;
-            margin: 0;
-            padding: 20px;
-            color: #333;
-        }
-
-        h1 {
-            text-align: center;
-            color: #1e74cb;
-            margin-bottom: 30px;
-        }
-
-        section {
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            padding: 20px;
-            margin-bottom: 25px;
-        }
-
-        h2 {
-            color: #2f3640;
-            margin-bottom: 15px;
-        }
-
-        ul {
-            padding-left: 20px;
-        }
-
-        li {
-            margin-bottom: 10px;
-        }
-
-        .subitem {
-            margin-left: 20px;
-            list-style-type: circle;
-        }
-
-        button {
-            background-color: #1e74cb;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 6px;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-
-        button:hover {
-            background-color: #1554a1;
-        }
-
-        input[type="file"] {
-            margin-top: 5px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Módulo de Capacitación</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="bg-gray-100 min-h-screen p-6">
+  <div class="max-w-6xl mx-auto">
+    
+    <!-- Título -->
+    <h1 class="text-3xl font-bold text-center text-blue-600 mb-10">
+      📂 Módulo de Capacitación
+    </h1>
 
-<h1>📂 Módulo de Capacitación</h1>
+    <!-- Formulario de registro -->
+    <section class="bg-white shadow-md rounded-xl p-6 mb-8">
+      <h2 class="text-xl font-semibold text-gray-800 mb-6">Registrar Capacitación</h2>
+      
+      <form action="{{ url_for('capacitacion') }}" method="POST" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+       
 
-<!-- 1. Gestión de Competencias -->
-<section>
-    <h2>1. Gestión de Competencias (Cláusula 7.2)</h2>
-    <ul>
-        <li>Base de Datos de Puestos de Trabajo: definir roles con habilidades requeridas.
-            <ul class="subitem">
-                <li>Requerimiento: Crear tabla de roles y competencias en la app.</li>
-            </ul>
-        </li>
-        <li>Competencias Requeridas por Puesto
-            <ul class="subitem">
-                <li>Requerimiento: Formulario para asignar habilidades a cada puesto.</li>
-            </ul>
-        </li>
-        <li>Evaluación de Competencias
-            <ul class="subitem">
-                <li>Requerimiento: Sistema para evaluar empleados y detectar brechas.</li>
-            </ul>
-        </li>
-        <li>Plan de Capacitación
-            <ul class="subitem">
-                <li>Requerimiento: Generar planes automáticos según brechas detectadas.</li>
-            </ul>
-        </li>
-    </ul>
-    <button>Ver Plan de Capacitación</button>
-</section>
+        <div>
+          <label class="block text-gray-700 font-medium mb-2">Responsable</label>
+          <input type="text" name="responsable" class="w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+        </div>
 
-<!-- 2. Capacitación y Entrenamiento -->
-<section>
-    <h2>2. Capacitación y Entrenamiento</h2>
-    <ul>
-        <li>Catálogo de Cursos
-            <ul class="subitem">
-                <li>Requerimiento: Lista de cursos disponibles (internos/externos) con descripción.</li>
-            </ul>
-        </li>
-        <li>Calendario de Capacitación
-            <ul class="subitem">
-                <li>Requerimiento: Programar cursos y asignar a empleados.</li>
-            </ul>
-        </li>
-        <li>Seguimiento de Asistencia y Participación
-            <ul class="subitem">
-                <li>Requerimiento: Registrar asistencia y participación de cada empleado.</li>
-            </ul>
-        </li>
-    </ul>
-    <button>Registrar Asistencia</button>
-</section>
+        <div>
+          <label class="block text-gray-700 font-medium mb-2">Persona a Capacitar</label>
+          <input type="text" name="persona" class="w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+        </div>
 
-<!-- 3. Toma de Conciencia -->
-<section>
-    <h2>3. Toma de Conciencia (Cláusula 7.3)</h2>
-    <ul>
-        <li>Comunicados y Campañas
-            <ul class="subitem">
-                <li>Requerimiento: Publicar noticias y políticas de calidad visibles a todos.</li>
-            </ul>
-        </li>
-        <li>Registro de Evidencias
-            <ul class="subitem">
-                <li>Requerimiento: Subir fotos, actas o listas de asistencia.</li>
-            </ul>
-        </li>
-    </ul>
-    <input type="file" multiple>
-    <button>Subir Evidencias</button>
-</section>
+        <div>
+          <label class="block text-gray-700 font-medium mb-2">Documento Asignado</label>
+          <input type="text" name="documento" class="w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+        </div>
 
-<!-- 4. Evaluación de la Efectividad -->
-<section>
-    <h2>4. Evaluación de la Efectividad</h2>
-    <ul>
-        <li>Exámenes y Cuestionarios
-            <ul class="subitem">
-                <li>Requerimiento: Crear y calificar pruebas online para los empleados.</li>
-            </ul>
-        </li>
-        <li>Evaluación Post-Curso
-            <ul class="subitem">
-                <li>Requerimiento: Vincular desempeño real con indicadores de capacitación.</li>
-            </ul>
-        </li>
-    </ul>
-    <button>Iniciar Evaluación</button>
-</section>
+        <div>
+          <label class="block text-gray-700 font-medium mb-2">Fecha</label>
+          <input type="date" name="fecha" class="w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+        </div>
 
-<!-- 5. Biblioteca de Recursos -->
-<section>
-    <h2>5. Biblioteca de Recursos</h2>
-    <ul>
-        <li>Material de Apoyo
-            <ul class="subitem">
-                <li>Requerimiento: Subir y consultar manuales, presentaciones y videos.</li>
-            </ul>
-        </li>
-        <li>Certificados
-            <ul class="subitem">
-                <li>Requerimiento: Guardar digitalmente certificados de empleados.</li>
-            </ul>
-        </li>
-    </ul>
-    <input type="file" multiple>
-    <button>Subir Recursos</button>
-</section>
+        <div class="md:col-span-2">
+          <label class="block text-gray-700 font-medium mb-2">Objetivo</label>
+          <textarea name="objetivo" rows="3" class="w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"></textarea>
+        </div>
 
+        <div class="md:col-span-2 flex justify-center">
+          <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg">
+            Guardar Capacitación
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Tabla de capacitaciones -->
+    <section class="bg-white shadow-md rounded-xl p-6 mb-8">
+      <h2 class="text-xl font-semibold text-gray-800 mb-6">Listado de Capacitaciones</h2>
+      
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border border-gray-200 rounded-lg">
+          <thead class="bg-gray-100">
+            <tr>
+              <th class="px-4 py-2">Responsable</th>
+              <th class="px-4 py-2">Persona</th>
+              <th class="px-4 py-2">Documento</th>
+              <th class="px-4 py-2">Fecha</th>
+              <th class="px-4 py-2">Objetivo</th>
+              <th class="px-4 py-2">Evidencia</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Ejemplo de fila -->
+            <tr class="border-t">
+              <td class="px-4 py-2">Carlos Pérez</td>
+              <td class="px-4 py-2">Ana Gómez</td>
+              <td class="px-4 py-2">Política de Calidad</td>
+              <td class="px-4 py-2">2025-09-30</td>
+              <td class="px-4 py-2">Fortalecer conocimiento en ISO 9001</td>
+              <td class="px-4 py-2">
+                <div class="flex items-center gap-2">
+                  <button class="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded-lg text-sm">Subir</button>
+                  <span class="text-red-500 text-sm">No subido</span>
+                </div>
+              </td>
+            </tr>
+            <!-- Aquí se generarán más filas dinámicamente -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Botones globales -->
+    <div class="flex justify-center gap-4">
+      <button class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg">Guardar</button>
+      <a href="{{ url_for('implementacion') }}" class="bg-green-600 hover:bg-green-700 text-white px-5 py-2 rounded-lg">Ir a Implementación</a>
+      <a href="{{ url_for('auditoria') }}" class="bg-purple-600 hover:bg-purple-700 text-white px-5 py-2 rounded-lg">Ir a Auditoría</a>
+      <a href="{{ url_for('iso9001') }}" class="bg-gray-500 hover:bg-gray-600 text-white px-5 py-2 rounded-lg">Regresar</a>
+    </div>
+
+  </div>
 </body>
 </html>

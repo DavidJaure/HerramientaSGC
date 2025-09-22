@@ -3,18 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <title>Opciones ISO 9001</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <div class="container">
-    <h2>Opciones ISO 9001</h2>
-    <div class="button-grid">
-      <a href="{{ url_for('implementacion') }}" class="btn iso9001">Implementación</a>
-      <a href="{{ url_for('capacitacion') }}" class="btn iso9001">Capacitación</a>
-      <a href="{{ url_for('auditoria') }}" class="btn iso9001">Auditoría</a>
+<body class="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 min-h-screen flex items-center justify-center">
+  <div class="w-full max-w-md bg-white rounded-xl shadow-2xl p-8">
+    
+    <!-- Título -->
+    <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Opciones ISO 9001</h2>
+    
+    <!-- Botones principales -->
+    <div class="grid gap-4">
+      <a href="{{ url_for('implementacion') }}" 
+         class="block w-full text-center px-6 py-3 rounded-lg bg-indigo-600 text-white font-semibold shadow hover:bg-indigo-700 transition">
+        Implementación
+      </a>
+      <a href="{{ url_for('capacitacion') }}" 
+         class="block w-full text-center px-6 py-3 rounded-lg bg-purple-600 text-white font-semibold shadow hover:bg-purple-700 transition">
+        Capacitación
+      </a>
+      <a href="{{ url_for('auditoria') }}" 
+         class="block w-full text-center px-6 py-3 rounded-lg bg-pink-600 text-white font-semibold shadow hover:bg-pink-700 transition">
+        Auditoría
+      </a>
     </div>
-    <div style="margin-top:20px;">
-      <a href="{{ url_for('dashboard') }}" class="btn logout">Regresar</a>
+
+    <!-- Botón de regreso -->
+    <div class="mt-8 text-center">
+      <a href="{{ url_for('dashboard') }}" 
+         class="inline-block px-6 py-2 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-100 transition">
+        ⬅ Regresar
+      </a>
     </div>
   </div>
 </body>

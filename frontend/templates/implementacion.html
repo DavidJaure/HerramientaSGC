@@ -1,27 +1,167 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Implementación ISO 9001</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <meta charset="UTF-8">
+  <title>Implementación ISO 9001</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <div class="container">
-        <h1>Implementación ISO 9001</h1>
-        <p>Selecciona una de las opciones:</p>
+<body class="bg-gray-50 min-h-screen flex flex-col items-center py-10">
 
-        <div class="button-group">
-            <!-- Ir a la página de plantillas -->
-            <form action="{{ url_for('plantillas') }}" method="get">
-                <button type="submit" class="btn">📄 Buscar y Descargar Plantilla</button>
-            </form>
+  <!-- Título -->
+  <h1 class="text-4xl font-extrabold text-blue-700 mb-8">Implementación ISO 9001</h1>
 
-            <!-- Subir evidencias -->
-            <form action="{{ url_for('subir_evidencias') }}" method="post" enctype="multipart/form-data">
-                <input type="file" name="archivo" required>
-                <button type="submit" class="btn">📤 Subir Evidencias</button>
-            </form>
+  <!-- Contenedor principal -->
+  <div class="w-full max-w-5xl space-y-6">
+
+    <!-- CONTEXTO -->
+    <details class="group border rounded-lg shadow hover:shadow-lg transition">
+      <summary class="cursor-pointer bg-gradient-to-r from-blue-600 to-blue-500 text-white px-5 py-3 rounded-t-lg text-lg font-semibold flex justify-between items-center">
+        Contexto
+        <span class="transition group-open:rotate-180">▼</span>
+      </summary>
+      <div class="p-5 space-y-4 bg-white rounded-b-lg">
+        <div class="flex items-center justify-between border-b pb-2">
+          <span>Mapa de Procesos</span>
+          <div class="flex space-x-2">
+            <a href="/descargar/mapa" class="px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded">Descargar</a>
+            <input type="file" class="hidden" id="uploadMapa">
+            <label for="uploadMapa" class="px-3 py-1 bg-yellow-500 hover:bg-yellow-600 text-white rounded cursor-pointer">Subir</label>
+            <span class="px-3 py-1 rounded bg-red-500 text-white">Pendiente</span>
+          </div>
         </div>
-    </div>
+        <div class="flex items-center justify-between">
+          <span>Análisis FODA</span>
+          <div class="flex space-x-2">
+            <a href="/descargar/foda" class="px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded">Descargar</a>
+            <input type="file" class="hidden" id="uploadFoda">
+            <label for="uploadFoda" class="px-3 py-1 bg-yellow-500 hover:bg-yellow-600 text-white rounded cursor-pointer">Subir</label>
+            <span class="px-3 py-1 rounded bg-green-500 text-white">Completado</span>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- LIDERAZGO -->
+    <details class="group border rounded-lg shadow hover:shadow-lg transition">
+      <summary class="cursor-pointer bg-gradient-to-r from-blue-600 to-blue-500 text-white px-5 py-3 rounded-t-lg text-lg font-semibold flex justify-between items-center">
+        Liderazgo
+        <span class="transition group-open:rotate-180">▼</span>
+      </summary>
+      <div class="p-5 space-y-4 bg-white rounded-b-lg">
+        <div class="flex items-center justify-between border-b pb-2">
+          <span>Política de Calidad</span>
+          <div class="flex space-x-2">
+            <a href="/descargar/politica" class="px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded">Descargar</a>
+            <input type="file" class="hidden" id="uploadPolitica">
+            <label for="uploadPolitica" class="px-3 py-1 bg-yellow-500 hover:bg-yellow-600 text-white rounded cursor-pointer">Subir</label>
+            <span class="px-3 py-1 rounded bg-red-500 text-white">Pendiente</span>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <span>Roles y Responsabilidades</span>
+          <div class="flex space-x-2">
+            <a href="/descargar/roles" class="px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded">Descargar</a>
+            <input type="file" class="hidden" id="uploadRoles">
+            <label for="uploadRoles" class="px-3 py-1 bg-yellow-500 hover:bg-yellow-600 text-white rounded cursor-pointer">Subir</label>
+            <span class="px-3 py-1 rounded bg-red-500 text-white">Pendiente</span>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- PLANIFICACIÓN -->
+    <details class="group border rounded-lg shadow hover:shadow-lg transition">
+      <summary class="cursor-pointer bg-gradient-to-r from-blue-600 to-blue-500 text-white px-5 py-3 rounded-t-lg text-lg font-semibold flex justify-between items-center">
+        Planificación
+        <span class="transition group-open:rotate-180">▼</span>
+      </summary>
+      <div class="p-5 space-y-4 bg-white rounded-b-lg">
+        <div class="flex items-center justify-between border-b pb-2">
+          <span>Plan de Riesgos y Oportunidades</span>
+          <div class="flex space-x-2">
+            <a href="/descargar/riesgos" class="px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded">Descargar</a>
+            <input type="file" class="hidden" id="uploadRiesgos">
+            <label for="uploadRiesgos" class="px-3 py-1 bg-yellow-500 hover:bg-yellow-600 text-white rounded cursor-pointer">Subir</label>
+            <span class="px-3 py-1 rounded bg-green-500 text-white">Completado</span>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <span>Objetivos de Calidad</span>
+          <div class="flex space-x-2">
+            <a href="/descargar/objetivos" class="px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded">Descargar</a>
+            <input type="file" class="hidden" id="uploadObjetivos">
+            <label for="uploadObjetivos" class="px-3 py-1 bg-yellow-500 hover:bg-yellow-600 text-white rounded cursor-pointer">Subir</label>
+            <span class="px-3 py-1 rounded bg-red-500 text-white">Pendiente</span>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- SOPORTE -->
+    <details class="group border rounded-lg shadow hover:shadow-lg transition">
+      <summary class="cursor-pointer bg-gradient-to-r from-blue-600 to-blue-500 text-white px-5 py-3 rounded-t-lg text-lg font-semibold flex justify-between items-center">
+        Soporte
+        <span class="transition group-open:rotate-180">▼</span>
+      </summary>
+      <div class="p-5 space-y-4 bg-white rounded-b-lg">
+        <div class="flex items-center justify-between border-b pb-2">
+          <span>Gestión de Recursos</span>
+          <div class="flex space-x-2">
+            <a href="/descargar/recursos" class="px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded">Descargar</a>
+            <input type="file" class="hidden" id="uploadRecursos">
+            <label for="uploadRecursos" class="px-3 py-1 bg-yellow-500 hover:bg-yellow-600 text-white rounded cursor-pointer">Subir</label>
+            <span class="px-3 py-1 rounded bg-red-500 text-white">Pendiente</span>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <span>Competencias y Capacitación</span>
+          <div class="flex space-x-2">
+            <a href="/descargar/competencias" class="px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded">Descargar</a>
+            <input type="file" class="hidden" id="uploadCompetencias">
+            <label for="uploadCompetencias" class="px-3 py-1 bg-yellow-500 hover:bg-yellow-600 text-white rounded cursor-pointer">Subir</label>
+            <span class="px-3 py-1 rounded bg-red-500 text-white">Pendiente</span>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- EVALUACIÓN DEL DESEMPEÑO -->
+    <details class="group border rounded-lg shadow hover:shadow-lg transition">
+      <summary class="cursor-pointer bg-gradient-to-r from-blue-600 to-blue-500 text-white px-5 py-3 rounded-t-lg text-lg font-semibold flex justify-between items-center">
+        Evaluación del Desempeño
+        <span class="transition group-open:rotate-180">▼</span>
+      </summary>
+      <div class="p-5 space-y-4 bg-white rounded-b-lg">
+        <div class="flex items-center justify-between border-b pb-2">
+          <span>Encuesta de Satisfacción</span>
+          <div class="flex space-x-2">
+            <a href="/descargar/encuesta" class="px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded">Descargar</a>
+            <input type="file" class="hidden" id="uploadEncuesta">
+            <label for="uploadEncuesta" class="px-3 py-1 bg-yellow-500 hover:bg-yellow-600 text-white rounded cursor-pointer">Subir</label>
+            <span class="px-3 py-1 rounded bg-green-500 text-white">Completado</span>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <span>Revisión por la Dirección</span>
+          <div class="flex space-x-2">
+            <a href="/descargar/revision" class="px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded">Descargar</a>
+            <input type="file" class="hidden" id="uploadRevision">
+            <label for="uploadRevision" class="px-3 py-1 bg-yellow-500 hover:bg-yellow-600 text-white rounded cursor-pointer">Subir</label>
+            <span class="px-3 py-1 rounded bg-red-500 text-white">Pendiente</span>
+          </div>
+        </div>
+      </div>
+    </details>
+
+  </div>
+
+  <!-- BOTONES PRINCIPALES -->
+  <div class="mt-10 flex flex-wrap gap-4 justify-center">
+    <button class="px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg shadow">Guardar</button>
+    <a href="/frontend/templates/capacitacion.html" class="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-lg shadow">Ir a Capacitación</a>
+    <a href="/frontend/templates/auditoria.html" class="px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg shadow">Ir a Auditoría</a>
+    <a href="/frontend/templates/opcionesISO9001.html" class="px-6 py-3 bg-gray-500 hover:bg-gray-600 text-white font-semibold rounded-lg shadow">Regresar</a>
+  </div>
+
 </body>
 </html>

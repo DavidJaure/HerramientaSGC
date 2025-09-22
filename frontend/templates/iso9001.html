@@ -3,70 +3,175 @@
 <head>
   <meta charset="UTF-8">
   <title>Registro ISO</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide-icons/dist/umd/lucide.min.js"></script>
 </head>
-<body>
-  <div class="container">
-    <h2>REGISTRO ISO</h2>
+<body class="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-900 via-blue-800 to-indigo-700 text-gray-800">
 
-    <!-- FORM con action y method POST -->
-    <form action="{{ url_for('iso9001_inicio') }}" method="POST" class="form-grid">
+  <div class="bg-white/90 backdrop-blur-md shadow-2xl rounded-3xl w-full max-w-6xl p-10">
+
+    <!-- Título -->
+    <h2 class="text-3xl font-extrabold text-center text-gray-800 mb-8 tracking-wide">Registro ISO</h2>
+
+    <!-- Formulario -->
+    <form action="{{ url_for('iso9001_inicio') }}" method="POST" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      
       <!-- Columna izquierda -->
-      <div>
-        <label for="razon">Razón Social</label>
-        <input type="text" id="razon" name="razon">
+      <div class="space-y-5">
+        <div>
+          <label for="razon" class="block text-sm font-semibold text-gray-600">Razón Social</label>
+          <div class="relative mt-1">
+            <i data-lucide="building" class="absolute left-3 top-3 text-gray-400"></i>
+            <input type="text" id="razon" name="razon"
+              class="w-full pl-10 pr-4 py-2 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none">
+          </div>
+        </div>
 
-        <label for="nit">NIT</label>
-        <input type="text" id="nit" name="nit">
+        <div>
+          <label for="nit" class="block text-sm font-semibold text-gray-600">NIT</label>
+          <div class="relative mt-1">
+            <i data-lucide="hash" class="absolute left-3 top-3 text-gray-400"></i>
+            <input type="text" id="nit" name="nit"
+              class="w-full pl-10 pr-4 py-2 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none">
+          </div>
+        </div>
 
-        <label for="representante">Representante Legal</label>
-        <input type="text" id="representante" name="representante">
+        <div>
+          <label for="representante" class="block text-sm font-semibold text-gray-600">Representante Legal</label>
+          <div class="relative mt-1">
+            <i data-lucide="user" class="absolute left-3 top-3 text-gray-400"></i>
+            <input type="text" id="representante" name="representante"
+              class="w-full pl-10 pr-4 py-2 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none">
+          </div>
+        </div>
 
-        <label for="sector">Sector Económico</label>
-        <input type="text" id="sector" name="sector">
+        <div>
+          <label for="sector" class="block text-sm font-semibold text-gray-600">Sector Económico</label>
+          <div class="relative mt-1">
+            <i data-lucide="briefcase" class="absolute left-3 top-3 text-gray-400"></i>
+            <input type="text" id="sector" name="sector"
+              class="w-full pl-10 pr-4 py-2 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none">
+          </div>
+        </div>
 
-        <label for="tipo">Tipo de Empresa</label>
-        <input type="text" id="tipo" name="tipo">
+        <div>
+          <label for="tipo" class="block text-sm font-semibold text-gray-600">Tipo de Empresa</label>
+          <div class="relative mt-1">
+            <i data-lucide="layers" class="absolute left-3 top-3 text-gray-400"></i>
+            <input type="text" id="tipo" name="tipo"
+              class="w-full pl-10 pr-4 py-2 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none">
+          </div>
+        </div>
 
-        <label for="direccion">Dirección</label>
-        <input type="text" id="direccion" name="direccion">
+        <div>
+          <label for="direccion" class="block text-sm font-semibold text-gray-600">Dirección</label>
+          <div class="relative mt-1">
+            <i data-lucide="map-pin" class="absolute left-3 top-3 text-gray-400"></i>
+            <input type="text" id="direccion" name="direccion"
+              class="w-full pl-10 pr-4 py-2 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none">
+          </div>
+        </div>
 
-        <label for="telefono">Teléfonos</label>
-        <input type="text" id="telefono" name="telefono">
+        <div>
+          <label for="telefono" class="block text-sm font-semibold text-gray-600">Teléfonos</label>
+          <div class="relative mt-1">
+            <i data-lucide="phone" class="absolute left-3 top-3 text-gray-400"></i>
+            <input type="text" id="telefono" name="telefono"
+              class="w-full pl-10 pr-4 py-2 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none">
+          </div>
+        </div>
       </div>
 
       <!-- Columna derecha -->
-      <div>
-        <label for="empleados">Número de Empleados</label>
-        <input type="number" id="empleados" name="empleados">
+      <div class="space-y-5">
+        <div>
+          <label for="empleados" class="block text-sm font-semibold text-gray-600">Número de Empleados</label>
+          <div class="relative mt-1">
+            <i data-lucide="users" class="absolute left-3 top-3 text-gray-400"></i>
+            <input type="number" id="empleados" name="empleados"
+              class="w-full pl-10 pr-4 py-2 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none">
+          </div>
+        </div>
 
-        <label for="email">E-mail</label>
-        <input type="email" id="email" name="email">
+        <div>
+          <label for="email" class="block text-sm font-semibold text-gray-600">E-mail</label>
+          <div class="relative mt-1">
+            <i data-lucide="mail" class="absolute left-3 top-3 text-gray-400"></i>
+            <input type="email" id="email" name="email"
+              class="w-full pl-10 pr-4 py-2 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none">
+          </div>
+        </div>
 
-        <label for="web">Web</label>
-        <input type="url" id="web" name="web">
+        <div>
+          <label for="web" class="block text-sm font-semibold text-gray-600">Web</label>
+          <div class="relative mt-1">
+            <i data-lucide="globe" class="absolute left-3 top-3 text-gray-400"></i>
+            <input type="url" id="web" name="web"
+              class="w-full pl-10 pr-4 py-2 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none">
+          </div>
+        </div>
 
-        <label for="facebook">Facebook</label>
-        <input type="text" id="facebook" name="facebook">
+        <div>
+          <label for="facebook" class="block text-sm font-semibold text-gray-600">Facebook</label>
+          <div class="relative mt-1">
+            <i data-lucide="facebook" class="absolute left-3 top-3 text-gray-400"></i>
+            <input type="text" id="facebook" name="facebook"
+              class="w-full pl-10 pr-4 py-2 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none">
+          </div>
+        </div>
 
-        <label for="instagram">Instagram</label>
-        <input type="text" id="instagram" name="instagram">
+        <div>
+          <label for="instagram" class="block text-sm font-semibold text-gray-600">Instagram</label>
+          <div class="relative mt-1">
+            <i data-lucide="instagram" class="absolute left-3 top-3 text-gray-400"></i>
+            <input type="text" id="instagram" name="instagram"
+              class="w-full pl-10 pr-4 py-2 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none">
+          </div>
+        </div>
 
-        <label for="linkedin">LinkedIn</label>
-        <input type="text" id="linkedin" name="linkedin">
+        <div>
+          <label for="linkedin" class="block text-sm font-semibold text-gray-600">LinkedIn</label>
+          <div class="relative mt-1">
+            <i data-lucide="linkedin" class="absolute left-3 top-3 text-gray-400"></i>
+            <input type="text" id="linkedin" name="linkedin"
+              class="w-full pl-10 pr-4 py-2 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none">
+          </div>
+        </div>
 
-        <label for="tiktok">TikTok</label>
-        <input type="text" id="tiktok" name="tiktok">
+        <div>
+          <label for="tiktok" class="block text-sm font-semibold text-gray-600">TikTok</label>
+          <div class="relative mt-1">
+            <i data-lucide="video" class="absolute left-3 top-3 text-gray-400"></i>
+            <input type="text" id="tiktok" name="tiktok"
+              class="w-full pl-10 pr-4 py-2 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none">
+          </div>
+        </div>
       </div>
 
-      <!-- Botones de acción dentro del form para que el submit funcione -->
-      <div style="grid-column: 1 / -1; display:flex; gap:1rem; justify-content:center; margin-top:1rem;">
-        <button type="submit" class="btn iso9001">Guardar</button>
-        <button type="button" class="btn iso27001">Verificación de Calidad I</button>
-        <button type="button" class="btn iso27001">Verificación de Calidad II</button>
-        <a href="{{ url_for('iso9001') }}" class="btn logout">Regresar</a>
+      <!-- Botones -->
+      <div class="col-span-1 md:col-span-2 flex flex-wrap justify-center gap-4 mt-10">
+        <button type="submit"
+          class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-xl shadow-md hover:shadow-lg transition transform hover:-translate-y-0.5">
+          Guardar
+        </button>
+        <button type="button"
+          class="bg-green-600 hover:bg-green-700 text-white font-semibold px-8 py-3 rounded-xl shadow-md hover:shadow-lg transition transform hover:-translate-y-0.5">
+          Verificación de Calidad I
+        </button>
+        <button type="button"
+          class="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold px-8 py-3 rounded-xl shadow-md hover:shadow-lg transition transform hover:-translate-y-0.5">
+          Verificación de Calidad II
+        </button>
+        <a href="{{ url_for('iso9001') }}"
+          class="bg-red-600 hover:bg-red-700 text-white font-semibold px-8 py-3 rounded-xl shadow-md hover:shadow-lg transition transform hover:-translate-y-0.5">
+          Regresar
+        </a>
       </div>
     </form>
   </div>
+
+  <script>
+    lucide.createIcons();
+  </script>
 </body>
 </html>

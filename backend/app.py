@@ -1,21 +1,22 @@
 import os
-from flask import Flask, render_template, request, redirect, url_for, session
-from flask import send_from_directory #Para las plantillas
-from urllib.parse import unquote  # al inicio de tu archivo, si no lo tienes ya
+from flask import Flask, render_template, request, redirect, url_for, session, send_from_directory
+from urllib.parse import unquote  
 
-# Carpeta raíz del frontend
+# ----------------------------
+# Configuración
+# ----------------------------
 FRONTEND_DIR = os.path.join(os.path.dirname(__file__), "../frontend")
+PLANTILLAS_DIR = os.path.join(FRONTEND_DIR, "plantillasISO9001")
 
 app = Flask(
     __name__,
     template_folder=os.path.join(FRONTEND_DIR, "templates"),
     static_folder=os.path.join(FRONTEND_DIR, "static")
 )
-
 app.secret_key = "super_secret_key"
 
 # ----------------------------
-# Usuarios simulados con roles
+# Usuarios simulados
 # ----------------------------
 usuarios_simulados = [
     {"nombre": "David", "email": "david@gmail.com", "password": "1234", "rol": "admin"},
@@ -23,49 +24,72 @@ usuarios_simulados = [
     {"nombre": "Luis", "email": "luis@gmail.com", "password": "1234", "rol": "capacitado"}
 ]
 
+# Flag de registro ISO (solo para admin)
+registro_completo = False
+
 # ----------------------------
 # Rutas
 # ----------------------------
 
-# Login / pantalla inicial
-@app.route("/", methods=["GET"])
+@app.route("/")
 def home():
-    return render_template("home.html")
+    return render_template("home.html")  
 
-# Procesar login
 @app.route("/login", methods=["POST"])
 def login():
     email = request.form["email"]
     password = request.form["password"]
 
-    # Verificar usuario simulado
     usuario = next((u for u in usuarios_simulados if u["email"] == email and u["password"] == password), None)
     if usuario:
         session["usuario"] = usuario["nombre"]
         session["rol"] = usuario["rol"]
-        return redirect(url_for("dashboard"))
+
+        if usuario["rol"] == "admin":
+            if not registro_completo:
+                return redirect(url_for("registro_iso"))
+            return redirect(url_for("dashboard_admin"))
+        else:
+            return redirect(url_for("dashboard"))
     else:
         return "Usuario o contraseña incorrectos", 401
 
-# Dashboard principal
 @app.route("/dashboard")
 def dashboard():
-    if "usuario" not in session:
+    if "usuario" not in session or session.get("rol") == "admin":
         return redirect(url_for("home"))
+    return render_template("dashboard.html", usuario=session["usuario"])
 
-    usuario = session["usuario"]
-    rol = session["rol"]
-    return render_template("dashboard.html", usuario=usuario, rol=rol)
+@app.route("/dashboard_admin")
+def dashboard_admin():
+    if session.get("rol") != "admin":
+        return redirect(url_for("home"))
+    return render_template("dashboard_admin.html")
 
-# Logout
-@app.route("/logout")
-def logout():
-    session.pop("usuario", None)
-    session.pop("rol", None)
+@app.route("/registro_iso", methods=["GET", "POST"])
+def registro_iso():
+    global registro_completo
+    if session.get("rol") == "admin":
+        if registro_completo:
+            return redirect(url_for("dashboard_admin"))
+        
+        if request.method == "POST":
+            # Guardar formulario en DB (simulado)
+            registro_completo = True
+            return redirect(url_for("dashboard_admin"))
+        
+        return render_template("registroISO.html")
+    
     return redirect(url_for("home"))
 
-#boton iso9001
+@app.route("/logout")
+def logout():
+    session.clear()
+    return redirect(url_for("home"))
 
+# ----------------------------
+# ISO 9001
+# ----------------------------
 @app.route("/iso9001")
 def iso9001():
     if "usuario" not in session:
@@ -76,113 +100,48 @@ def iso9001():
 def iso9001_inicio():
     if request.method == "POST":
         datos = request.form.to_dict()
-        print("Registro ISO recibido:", datos)
-
-        # Guardamos en sesión de forma temporal
         session['ultimo_registro_iso'] = datos
-
-        # 👉 Aquí en un futuro pondrás la lógica para guardar en la base de datos
-        # nuevo_registro = RegistroISO(**datos)
-        # db.session.add(nuevo_registro)
-        # db.session.commit()
-
-        # Luego redirigimos a opcionesISO9001.html
         return render_template("opcionesISO9001.html", datos=datos)
     return render_template("registroISO.html")
-#capacitacion
-@app.route("/iso9001/capacitacion", methods=["GET"])
+
+@app.route("/iso9001/capacitacion")
 def capacitacion():
     return render_template("capacitacion.html")
 
-#Auditoria
-@app.route("/iso9001/auditoria", methods=["GET"])
+@app.route("/iso9001/auditoria")
 def auditoria():
     return render_template("auditoria.html")
+
+@app.route("/iso9001/implementacion")
+def implementacion():
+    return render_template("implementacion.html")
 
 @app.route("/guardar_checklist", methods=["POST"])
 def guardar_checklist():
     datos = request.form.to_dict()
-    print(datos)  # ver qué checkboxes fueron marcadas
-    # Aquí puedes guardar en base de datos o Excel
+    print("Checklist recibido:", datos)
     return "Checklist guardado correctamente ✅"
-
-
-#implementacion
-@app.route("/iso9001/implementacion", methods=["GET"])
-def implementacion():
-    return render_template("implementacion.html")
-
 
 @app.route("/iso9001/evidencias", methods=["POST"])
 def subir_evidencias():
     archivo = request.files.get("archivo")
     if archivo:
         print("Archivo recibido:", archivo.filename)
-        # En un futuro lo guardas en una carpeta o BD
     return "Evidencia subida con éxito."
 
-# Carpeta principal de las plantillas
-PLANTILLAS_DIR = os.path.join(FRONTEND_DIR, "plantillasISO9001")
-
-# Página que muestra la lista de categorías (opcional)
 @app.route("/plantillas")
 def plantillas():
-    return render_template("plantillas.html")  # luego ajustaremos el HTML para listar dinámicamente
+    return render_template("plantillas.html")
 
-# Descargar archivo por categoría y nombre
 @app.route("/plantillas/<categoria>/<archivo>")
 def descargar_plantilla(categoria, archivo):
-    archivo = unquote(archivo)  # decodifica %20 y signos
+    archivo = unquote(archivo)
     ruta = os.path.join(PLANTILLAS_DIR, categoria)
-    print("📂 Buscando archivo en:", ruta)
-    print("📄 Archivo solicitado:", archivo)
     return send_from_directory(ruta, archivo, as_attachment=True)
 
-
-
-
-
-
-@app.route("/iso9001/objetivos")
-def iso9001_objetivos():
-    return "<h1>Objetivos ISO 9001</h1>"
-
-@app.route("/iso9001/beneficios")
-def iso9001_beneficios():
-    return "<h1>Beneficios ISO 9001</h1>"
-
-@app.route("/iso9001/pvha")
-def iso9001_pvha():
-    return "<h1>Ciclo PHVA (Planear, Hacer, Verificar, Actuar)</h1>"
-
-@app.route("/iso9001/organizacion")
-def iso9001_organizacion():
-    return "<h1>Organización</h1>"
-
-@app.route("/iso9001/liderazgo")
-def iso9001_liderazgo():
-    return "<h1>Liderazgo</h1>"
-
-@app.route("/iso9001/planificacion")
-def iso9001_planificacion():
-    return "<h1>Planificación</h1>"
-
-@app.route("/iso9001/apoyo")
-def iso9001_apoyo():
-    return "<h1>Apoyo</h1>"
-
-@app.route("/iso9001/operacion")
-def iso9001_operacion():
-    return "<h1>Operación</h1>"
-
-@app.route("/iso9001/desempeno")
-def iso9001_desempeno():
-    return "<h1>Desempeño</h1>"
-
-@app.route("/iso9001/mejora")
-def iso9001_mejora():
-    return "<h1>Mejora</h1>"
-
+# ----------------------------
+# ISO 27001 (placeholder)
+# ----------------------------
 @app.route("/iso27001")
 def iso27001():
     if "usuario" not in session:
@@ -196,6 +155,3 @@ if __name__ == "__main__":
     print("Templates en:", os.path.join(FRONTEND_DIR, "templates"))
     print("Static en:", os.path.join(FRONTEND_DIR, "static"))
     app.run(debug=True, host="0.0.0.0", port=5000)
-
-
-

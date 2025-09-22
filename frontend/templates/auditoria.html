@@ -1,151 +1,101 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Checklist ISO 9001:2015</title>
+  <meta charset="UTF-8">
+  <title>Auditoría ISO 9001:2015</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
+<body class="bg-gray-100 font-sans">
 
-<h1>✅ Checklist ISO 9001:2015 (Capítulos 4 al 10)</h1>
+  <div class="max-w-5xl mx-auto py-10 px-6">
+    <h1 class="text-3xl font-bold text-blue-700 text-center mb-8">✅ Auditoría ISO 9001:2015 (Capítulos 4 al 10)</h1>
 
-<form action="/guardar_checklist" method="POST">
+    <form action="/guardar_checklist" method="POST" class="space-y-6 bg-white shadow-md rounded-xl p-6">
 
-    <section>
-        <h2>📌 Capítulo 4: Contexto de la organización</h2>
-        <label><input type="checkbox" name="4.1"> 4.1 ¿La organización ha identificado factores internos y externos que afectan al SGC?</label>
-        <label><input type="checkbox" name="4.2"> 4.2 ¿Se han identificado las partes interesadas y sus necesidades?</label>
-        <label><input type="checkbox" name="4.3"> 4.3 ¿Se definió el alcance del SGC, considerando productos, servicios y exclusiones?</label>
-        <label><input type="checkbox" name="4.4"> 4.4 ¿Existe un mapa de procesos con entradas, salidas, secuencia e interacciones?</label>
-    </section>
+      <!-- Capítulo 4 -->
+      <section>
+        <h2 class="text-lg font-semibold bg-gray-200 rounded-md px-3 py-2">📌 Capítulo 4: Contexto de la organización</h2>
+        <div class="space-y-2 mt-3">
+          <label class="flex items-center"><input type="checkbox" name="4.1" class="w-5 h-5 text-blue-600"><span class="ml-2">4.1 ¿La organización ha identificado factores internos y externos que afectan al SGC?</span></label>
+          <label class="flex items-center"><input type="checkbox" name="4.2" class="w-5 h-5 text-blue-600"><span class="ml-2">4.2 ¿Se han identificado las partes interesadas y sus necesidades?</span></label>
+          <label class="flex items-center"><input type="checkbox" name="4.3" class="w-5 h-5 text-blue-600"><span class="ml-2">4.3 ¿Se definió el alcance del SGC, considerando productos, servicios y exclusiones?</span></label>
+          <label class="flex items-center"><input type="checkbox" name="4.4" class="w-5 h-5 text-blue-600"><span class="ml-2">4.4 ¿Existe un mapa de procesos con entradas, salidas, secuencia e interacciones?</span></label>
+        </div>
+      </section>
 
-    <section>
-        <h2>📌 Capítulo 5: Liderazgo</h2>
-        <label><input type="checkbox" name="5.1"> 5.1 ¿La alta dirección demuestra liderazgo y compromiso con el SGC?</label>
-        <label><input type="checkbox" name="5.2"> 5.2 ¿Está definida y comunicada la política de calidad?</label>
-        <label><input type="checkbox" name="5.3"> 5.3 ¿Se han asignado roles, responsabilidades y autoridades dentro del SGC?</label>
-    </section>
+      <!-- Capítulo 5 -->
+      <section>
+        <h2 class="text-lg font-semibold bg-gray-200 rounded-md px-3 py-2">📌 Capítulo 5: Liderazgo</h2>
+        <div class="space-y-2 mt-3">
+          <label class="flex items-center"><input type="checkbox" name="5.1" class="w-5 h-5 text-blue-600"><span class="ml-2">5.1 ¿La alta dirección demuestra liderazgo y compromiso con el SGC?</span></label>
+          <label class="flex items-center"><input type="checkbox" name="5.2" class="w-5 h-5 text-blue-600"><span class="ml-2">5.2 ¿Está definida y comunicada la política de calidad?</span></label>
+          <label class="flex items-center"><input type="checkbox" name="5.3" class="w-5 h-5 text-blue-600"><span class="ml-2">5.3 ¿Se han asignado roles, responsabilidades y autoridades dentro del SGC?</span></label>
+        </div>
+      </section>
 
-    <section>
-        <h2>📌 Capítulo 6: Planificación</h2>
-        <label><input type="checkbox" name="6.1"> 6.1 ¿Se han identificado riesgos y oportunidades? ¿Existe una matriz de riesgos?</label>
-        <label><input type="checkbox" name="6.2"> 6.2 ¿Están definidos objetivos de calidad, medibles y con seguimiento?</label>
-        <label><input type="checkbox" name="6.3"> 6.3 ¿Se planifican cambios al SGC de manera controlada?</label>
-    </section>
+      <!-- Capítulo 6 -->
+      <section>
+        <h2 class="text-lg font-semibold bg-gray-200 rounded-md px-3 py-2">📌 Capítulo 6: Planificación</h2>
+        <div class="space-y-2 mt-3">
+          <label class="flex items-center"><input type="checkbox" name="6.1" class="w-5 h-5 text-blue-600"><span class="ml-2">6.1 ¿Se han identificado riesgos y oportunidades? ¿Existe una matriz de riesgos?</span></label>
+          <label class="flex items-center"><input type="checkbox" name="6.2" class="w-5 h-5 text-blue-600"><span class="ml-2">6.2 ¿Están definidos objetivos de calidad, medibles y con seguimiento?</span></label>
+          <label class="flex items-center"><input type="checkbox" name="6.3" class="w-5 h-5 text-blue-600"><span class="ml-2">6.3 ¿Se planifican cambios al SGC de manera controlada?</span></label>
+        </div>
+      </section>
 
-    <section>
-        <h2>📌 Capítulo 7: Soporte</h2>
-        <label><input type="checkbox" name="7.1"> 7.1 ¿Se cuenta con recursos adecuados (infraestructura, ambiente, tecnología)?</label>
-        <label><input type="checkbox" name="7.2"> 7.2 ¿El personal es competente y hay registros de capacitación?</label>
-        <label><input type="checkbox" name="7.3"> 7.3 ¿Se asegura la toma de conciencia sobre política y objetivos de calidad?</label>
-        <label><input type="checkbox" name="7.4"> 7.4 ¿Se mantiene comunicación interna y externa efectiva?</label>
-        <label><input type="checkbox" name="7.5"> 7.5 ¿La información documentada (procedimientos, registros) está controlada?</label>
-    </section>
+      <!-- Capítulo 7 -->
+      <section>
+        <h2 class="text-lg font-semibold bg-gray-200 rounded-md px-3 py-2">📌 Capítulo 7: Soporte</h2>
+        <div class="space-y-2 mt-3">
+          <label class="flex items-center"><input type="checkbox" name="7.1" class="w-5 h-5 text-blue-600"><span class="ml-2">7.1 ¿Se cuenta con recursos adecuados (infraestructura, ambiente, tecnología)?</span></label>
+          <label class="flex items-center"><input type="checkbox" name="7.2" class="w-5 h-5 text-blue-600"><span class="ml-2">7.2 ¿El personal es competente y hay registros de capacitación?</span></label>
+          <label class="flex items-center"><input type="checkbox" name="7.3" class="w-5 h-5 text-blue-600"><span class="ml-2">7.3 ¿Se asegura la toma de conciencia sobre política y objetivos de calidad?</span></label>
+          <label class="flex items-center"><input type="checkbox" name="7.4" class="w-5 h-5 text-blue-600"><span class="ml-2">7.4 ¿Se mantiene comunicación interna y externa efectiva?</span></label>
+          <label class="flex items-center"><input type="checkbox" name="7.5" class="w-5 h-5 text-blue-600"><span class="ml-2">7.5 ¿La información documentada (procedimientos, registros) está controlada?</span></label>
+        </div>
+      </section>
 
-    <section>
-        <h2>📌 Capítulo 8: Operación</h2>
-        <label><input type="checkbox" name="8.1"> 8.1 ¿Se planifican y controlan las operaciones bajo condiciones controladas?</label>
-        <label><input type="checkbox" name="8.2"> 8.2 ¿Se gestionan adecuadamente los requisitos del cliente (contratos, pedidos)?</label>
-        <label><input type="checkbox" name="8.3"> 8.3 ¿Hay control en el diseño y desarrollo (cuando aplica)?</label>
-        <label><input type="checkbox" name="8.4"> 8.4 ¿Los proveedores externos son evaluados y controlados?</label>
-        <label><input type="checkbox" name="8.5"> 8.5 ¿La producción/servicio cumple requisitos definidos (instrucciones, equipos)?</label>
-        <label><input type="checkbox" name="8.6"> 8.6 ¿Se realizan controles de liberación de productos/servicios?</label>
-        <label><input type="checkbox" name="8.7"> 8.7 ¿Los productos/servicios no conformes se controlan y registran?</label>
-    </section>
+      <!-- Capítulo 8 -->
+      <section>
+        <h2 class="text-lg font-semibold bg-gray-200 rounded-md px-3 py-2">📌 Capítulo 8: Operación</h2>
+        <div class="space-y-2 mt-3">
+          <label class="flex items-center"><input type="checkbox" name="8.1" class="w-5 h-5 text-blue-600"><span class="ml-2">8.1 ¿Se planifican y controlan las operaciones bajo condiciones controladas?</span></label>
+          <label class="flex items-center"><input type="checkbox" name="8.2" class="w-5 h-5 text-blue-600"><span class="ml-2">8.2 ¿Se gestionan adecuadamente los requisitos del cliente (contratos, pedidos)?</span></label>
+          <label class="flex items-center"><input type="checkbox" name="8.3" class="w-5 h-5 text-blue-600"><span class="ml-2">8.3 ¿Hay control en el diseño y desarrollo (cuando aplica)?</span></label>
+          <label class="flex items-center"><input type="checkbox" name="8.4" class="w-5 h-5 text-blue-600"><span class="ml-2">8.4 ¿Los proveedores externos son evaluados y controlados?</span></label>
+          <label class="flex items-center"><input type="checkbox" name="8.5" class="w-5 h-5 text-blue-600"><span class="ml-2">8.5 ¿La producción/servicio cumple requisitos definidos (instrucciones, equipos)?</span></label>
+          <label class="flex items-center"><input type="checkbox" name="8.6" class="w-5 h-5 text-blue-600"><span class="ml-2">8.6 ¿Se realizan controles de liberación de productos/servicios?</span></label>
+          <label class="flex items-center"><input type="checkbox" name="8.7" class="w-5 h-5 text-blue-600"><span class="ml-2">8.7 ¿Los productos/servicios no conformes se controlan y registran?</span></label>
+        </div>
+      </section>
 
-    <section>
-        <h2>📌 Capítulo 9: Evaluación del desempeño</h2>
-        <label><input type="checkbox" name="9.1"> 9.1 ¿Se hace seguimiento, medición y análisis de indicadores de calidad?</label>
-        <label><input type="checkbox" name="9.2"> 9.2 ¿Se realizan auditorías internas planificadas y con registros?</label>
-        <label><input type="checkbox" name="9.3"> 9.3 ¿La alta dirección realiza la revisión por la dirección con entradas/salidas claras?</label>
-    </section>
+      <!-- Capítulo 9 -->
+      <section>
+        <h2 class="text-lg font-semibold bg-gray-200 rounded-md px-3 py-2">📌 Capítulo 9: Evaluación del desempeño</h2>
+        <div class="space-y-2 mt-3">
+          <label class="flex items-center"><input type="checkbox" name="9.1" class="w-5 h-5 text-blue-600"><span class="ml-2">9.1 ¿Se hace seguimiento, medición y análisis de indicadores de calidad?</span></label>
+          <label class="flex items-center"><input type="checkbox" name="9.2" class="w-5 h-5 text-blue-600"><span class="ml-2">9.2 ¿Se realizan auditorías internas planificadas y con registros?</span></label>
+          <label class="flex items-center"><input type="checkbox" name="9.3" class="w-5 h-5 text-blue-600"><span class="ml-2">9.3 ¿La alta dirección realiza la revisión por la dirección con entradas/salidas claras?</span></label>
+        </div>
+      </section>
 
-    <section>
-        <h2>📌 Capítulo 10: Mejora</h2>
-        <label><input type="checkbox" name="10.1"> 10.1 ¿Se gestionan oportunidades de mejora continuamente?</label>
-        <label><input type="checkbox" name="10.2"> 10.2 ¿Se aplican acciones correctivas para tratar no conformidades?</label>
-        <label><input type="checkbox" name="10.3"> 10.3 ¿Se mejora continuamente la eficacia del SGC?</label>
-    </section>
+      <!-- Capítulo 10 -->
+      <section>
+        <h2 class="text-lg font-semibold bg-gray-200 rounded-md px-3 py-2">📌 Capítulo 10: Mejora</h2>
+        <div class="space-y-2 mt-3">
+          <label class="flex items-center"><input type="checkbox" name="10.1" class="w-5 h-5 text-blue-600"><span class="ml-2">10.1 ¿Se gestionan oportunidades de mejora continuamente?</span></label>
+          <label class="flex items-center"><input type="checkbox" name="10.2" class="w-5 h-5 text-blue-600"><span class="ml-2">10.2 ¿Se aplican acciones correctivas para tratar no conformidades?</span></label>
+          <label class="flex items-center"><input type="checkbox" name="10.3" class="w-5 h-5 text-blue-600"><span class="ml-2">10.3 ¿Se mejora continuamente la eficacia del SGC?</span></label>
+        </div>
+      </section>
 
-    <button type="submit">Guardar Checklist</button>
-</form>
+      <!-- Botones -->
+      <div class="flex justify-center gap-4 pt-6">
+        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg">💾 Guardar Checklist</button>
+        <a href="/generar_pdf" class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg">📄 Generar Informe PDF</a>
+      </div>
+    </form>
+  </div>
 
 </body>
 </html>
-
-<style>
-    /* --- checklist.css --- */
-
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #1f2931; 
-    margin: 0;
-    padding: 0 20px;
-    color: #333;
-}
-
-h1 {
-    text-align: center;
-    color: #1e74cb;
-    margin: 30px 0 20px;
-}
-
-h2 {
-    color: #2f3640;
-    background-color: #dcdde1;
-    padding: 10px 15px;
-    border-radius: 8px;
-    margin-bottom: 15px;
-    font-size: 18px;
-}
-
-section {
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    padding: 20px;
-    margin-bottom: 25px;
-}
-
-label {
-    display: flex;
-    align-items: center;
-    margin: 8px 0;
-    font-size: 15px;
-    cursor: pointer;
-}
-
-input[type="checkbox"] {
-    margin-right: 12px;
-    width: 18px;
-    height: 18px;
-    accent-color: #1e74cb; /* color del check */
-}
-
-button {
-    display: block;
-    margin: 0 auto 40px auto;
-    background-color: #1e74cb;
-    color: #fff;
-    border: none;
-    padding: 12px 25px;
-    font-size: 16px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-button:hover {
-    background-color: #1554a1;
-}
-
-ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-p, span {
-    font-size: 14px;
-}
-
-</style>

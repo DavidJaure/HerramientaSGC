@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Informe Auditoría ISO 9001</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 25px; color: #333; background: #f8fafc; }
+h1 { text-align: center; color: #1E3A8A; }
+h2 { color: #1D4ED8; margin-top: 20px; margin-bottom: 5px; }
+.card { background: #ffffff; border-radius: 10px; padding: 15px; margin-bottom: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+.checkbox-item { margin: 5px 0; }
+.checkbox-item span { margin-left: 5px; }
+.status-completed { color: green; font-weight: bold; }
+.status-pending { color: red; font-weight: bold; }
+.table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+.table th, .table td { border: 1px solid #ccc; padding: 8px; text-align: center; }
+.table th { background-color: #DBEAFE; color: #1D4ED8; }
+.observaciones { margin-top: 15px; padding: 12px; border: 1px solid #ccc; border-radius: 6px; background: #EFF6FF; }
+</style>
+</head>
+<body>
+
+<h1>✅ Informe Auditoría ISO 9001:2015</h1>
+<p><strong>Fecha de auditoría:</strong> {{ fecha }}</p>
+
+<h2>Checklist de Auditoría</h2>
+{% set capítulos = {
+"4: Contexto de la organización": ["4.1","4.2","4.3","4.4"],
+"5: Liderazgo": ["5.1","5.2","5.3"],
+"6: Planificación": ["6.1","6.2","6.3"],
+"7: Soporte": ["7.1","7.2","7.3","7.4","7.5"],
+"8: Operación": ["8.1","8.2","8.3","8.4","8.5","8.6","8.7"],
+"9: Evaluación del desempeño": ["9.1","9.2","9.3"],
+"10: Mejora": ["10.1","10.2","10.3"]
+} %}
+{% for cap, items in capítulos.items() %}
+<div class="card">
+  <h2>📌 Capítulo {{ cap }}</h2>
+  {% for item in items %}
+    <div class="checkbox-item">
+      <span>{{ item }} - </span>
+      <span class="{{ 'status-completed' if checklist[item] else 'status-pending' }}">
+        {{ '✔ Completado' if checklist[item] else '✖ Pendiente' }}
+      </span>
+    </div>
+  {% endfor %}
+</div>
+{% endfor %}
+
+<h2>Plantillas de Implementación</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Plantilla</th>
+      <th>Estado</th>
+      <th>Fecha</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for p in plantillas %}
+    <tr>
+      <td>{{ p.nombre }}</td>
+      <td class="{{ 'status-completed' if p.completada else 'status-pending' }}">
+        {{ 'Completada' if p.completada else 'Pendiente' }}
+      </td>
+      <td>{{ p.fecha if p.fecha else '-' }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<h2>Observaciones</h2>
+<div class="observaciones">
+  {{ observaciones }}
+</div>
+
+</body>
+</html>

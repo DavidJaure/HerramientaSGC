@@ -2,4 +2,5 @@ Flask
 python-dotenv
 SQLAlchemy
 PyMySQL
-fpdf
+fpdf2
+weasyprint

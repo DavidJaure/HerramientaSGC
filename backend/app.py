@@ -1,8 +1,9 @@
 import os, io
-from flask import Flask, render_template, request, redirect, url_for, session, send_from_directory, send_file
+from flask import Flask, render_template, request, redirect, url_for, session, send_from_directory, send_file, make_response
 from urllib.parse import unquote  
 from fpdf import FPDF
 from datetime import datetime
+from weasyprint import HTML
 # ----------------------------
 # Configuración
 # ----------------------------
@@ -235,6 +236,52 @@ def auditoria():
         plantillas=plantillas_implementacion,
         fecha=datetime.now().strftime("%Y-%m-%d")
     )
+
+checklist_example = {
+    "4.1": True, "4.2": True, "4.3": True, "4.4": False,
+    "5.1": True, "5.2": False, "5.3": True,
+}
+
+
+@app.route("/generar_pdf")
+def generar_pdf():
+    # Checklist completo
+    checklist_example = {
+        "4.1": True, "4.2": False, "4.3": True, "4.4": True,
+        "5.1": True, "5.2": False, "5.3": True,
+        "6.1": True, "6.2": True, "6.3": False,
+        "7.1": True, "7.2": True, "7.3": True, "7.4": False, "7.5": True,
+        "8.1": True, "8.2": True, "8.3": False, "8.4": True, "8.5": True, "8.6": False, "8.7": True,
+        "9.1": True, "9.2": True, "9.3": True,
+        "10.1": True, "10.2": False, "10.3": True
+    }
+
+    # Plantillas de implementación
+    plantillas_implementacion = [
+        {"nombre": "Plantilla Alcance", "completada": True, "fecha": "2025-09-22"},
+        {"nombre": "Mapa de Procesos", "completada": True, "fecha": "2025-09-21"},
+        {"nombre": "Ficha de Procesos", "completada": True, "fecha": "2025-09-20"},
+        {"nombre": "Registro de Capacitación", "completada": False, "fecha": None},
+        {"nombre": "Matriz de Riesgos", "completada": True, "fecha": "2025-09-19"}
+    ]
+
+    observaciones = "Aquí van las observaciones completas del auditor sobre la implementación del SGC."
+
+    # Renderizar HTML para PDF
+    html_content = render_template(
+        "auditoria_pdf.html",
+        checklist=checklist_example,
+        plantillas=plantillas_implementacion,
+        observaciones=observaciones,
+        fecha=datetime.now().strftime('%Y-%m-%d')
+    )
+
+    pdf = HTML(string=html_content).write_pdf()
+    response = make_response(pdf)
+    response.headers['Content-Type'] = 'application/pdf'
+    response.headers['Content-Disposition'] = 'attachment; filename=Informe_Auditoria_Completo.pdf'
+    return response
+
 
 # ----------------------------
 # ISO 27001 (placeholder)

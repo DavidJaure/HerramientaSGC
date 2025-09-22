@@ -7,10 +7,10 @@
 </head>
 <body class="bg-gray-100 font-sans">
 
-<div class="max-w-5xl mx-auto py-10 px-6">
-  <h1 class="text-3xl font-bold text-blue-700 text-center mb-8">✅ Auditoría ISO 9001:2015 (Capítulos 4 al 10)</h1>
+<div class="max-w-6xl mx-auto py-10 px-6">
+  <h1 class="text-4xl font-bold text-blue-700 text-center mb-8">✅ Auditoría ISO 9001:2015 (Capítulos 4 al 10)</h1>
 
-  <form action="/iso9001/auditoria" method="POST" class="space-y-6 bg-white shadow-md rounded-xl p-6">
+  <form action="/iso9001/auditoria" method="POST" class="space-y-8 bg-white shadow-lg rounded-2xl p-8">
 
     <!-- Capítulos 4 al 10 (Checklist completo) -->
     {% for cap, items in [
@@ -57,11 +57,14 @@
         ("10.3", "¿Se mejora continuamente la eficacia del SGC?")
       ])
     ] %}
-    <section>
-      <h2 class="text-lg font-semibold bg-gray-200 rounded-md px-3 py-2 mt-4">📌 Capítulo {{ cap }}</h2>
-      <div class="space-y-2 mt-2">
+    <section class="border-l-4 border-blue-600 pl-4 py-3 bg-gray-50 rounded-md shadow-sm">
+      <h2 class="text-lg font-semibold text-blue-700 mb-2">📌 Capítulo {{ cap }}</h2>
+      <div class="space-y-2">
         {% for id, texto in items %}
-        <label class="flex items-center"><input type="checkbox" name="{{ id }}" class="w-5 h-5 text-blue-600"><span class="ml-2">{{ id }} {{ texto }}</span></label>
+        <label class="flex items-center bg-white rounded-md p-2 shadow-sm hover:bg-blue-50 transition">
+          <input type="checkbox" name="{{ id }}" class="w-5 h-5 text-blue-600">
+          <span class="ml-2">{{ id }} {{ texto }}</span>
+        </label>
         {% endfor %}
       </div>
     </section>
@@ -69,18 +72,18 @@
 
     <!-- Observaciones -->
     <section>
-      <h2 class="text-xl font-semibold mt-6 mb-2">Observaciones</h2>
-      <textarea name="observaciones" rows="4" class="w-full border rounded-md p-2" placeholder="Escribe tus observaciones aquí..."></textarea>
+      <h2 class="text-xl font-semibold mt-6 mb-2 text-blue-700">📝 Observaciones</h2>
+      <textarea name="observaciones" rows="5" class="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-blue-300" placeholder="Escribe tus observaciones aquí..."></textarea>
     </section>
 
     <!-- Plantillas completadas -->
-    <h1 class="text-2xl font-bold text-center mt-6 mb-4">📂 Plantillas de Implementación</h1>
+    <h1 class="text-2xl font-bold text-center mt-8 mb-4 text-blue-700">📂 Plantillas de Implementación</h1>
     <ul class="space-y-3 max-w-xl mx-auto">
       {% for plantilla in plantillas %}
-        <li class="p-4 rounded-lg {{ 'bg-green-200 text-green-800' if plantilla.completada else 'bg-red-200 text-red-800' }}">
-          {{ plantilla.nombre }}
+        <li class="flex justify-between items-center p-4 rounded-lg shadow-md {{ 'bg-green-100 text-green-800' if plantilla.completada else 'bg-red-100 text-red-800' }}">
+          <span>{{ plantilla.nombre }}</span>
           {% if plantilla.completada %}
-            <a href="/descargar/{{ plantilla.nombre }}" class="ml-4 px-3 py-1 bg-green-600 text-white rounded hover:bg-green-700">📥 Descargar</a>
+            <a href="/descargar/{{ plantilla.nombre }}" class="ml-4 px-3 py-1 bg-green-600 text-white rounded hover:bg-green-700 transition">📥 Descargar</a>
           {% endif %}
         </li>
       {% endfor %}
@@ -88,8 +91,8 @@
 
     <!-- Botones -->
     <div class="flex justify-center gap-4 pt-6">
-      <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg">💾 Guardar Checklist</button>
-      <a href="/generar_pdf" class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg">📄 Generar Informe PDF</a>
+      <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg shadow-md transition">💾 Guardar Checklist</button>
+      <a href="/generar_pdf" class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg shadow-md transition">📄 Generar Informe PDF</a>
     </div>
 
   </form>

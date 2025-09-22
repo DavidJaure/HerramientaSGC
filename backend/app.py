@@ -120,6 +120,7 @@ def iso9001_inicio():
 
 from flask import render_template, session
 
+#Capacitacionea
 @app.route("/iso9001/capacitacion")
 def capacitacion():
     # lista de documentos completados (puede venir de la base de datos)
@@ -134,6 +135,35 @@ def capacitacion():
         capacitaciones=capacitaciones,
         rol=session.get("rol", "capacitado")  # opcional, si quieres pasar el rol al template
     )
+
+#Capacitaciones con BD
+#def get_capacitaciones():
+    # Ejemplo: consulta a la tabla capacitaciones
+   # result = db.session.execute("SELECT * FROM capacitaciones")
+    # Convierte a lista de diccionarios
+   # return [dict(row) for row in result]
+
+#Eejemplo get sin base de datos
+def get_capacitaciones():
+    return [
+        {
+            "responsable": "Carlos Pérez",
+            "persona": "Ana Gómez",
+            "documento": "Política de Calidad",
+            "fecha": "2025-09-30",
+            "objetivo": "Fortalecer conocimiento en ISO 9001",
+            "evidencia": False
+        },
+        {
+            "responsable": "Luis Martínez",
+            "persona": "Juan Torres",
+            "documento": "FODA",
+            "fecha": "2025-10-05",
+            "objetivo": "Analizar fortalezas y debilidades",
+            "evidencia": True
+        }
+    ]
+
 
 
 @app.route("/iso9001/auditoria")
@@ -182,4 +212,4 @@ def iso27001():
 if __name__ == "__main__":
     print("Templates en:", os.path.join(FRONTEND_DIR, "templates"))
     print("Static en:", os.path.join(FRONTEND_DIR, "static"))
-    app.run(debug=True, host="0.0.0.0", port=5000)
+    app.run(debug=True, host="0.0.0.0", port=5001)

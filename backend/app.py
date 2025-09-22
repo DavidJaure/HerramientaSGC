@@ -259,8 +259,8 @@ checklist_example = {
 def generar_pdf():
     # Datos de auditor (ejemplo)
     auditor = {
-        "nombre": "Luis",
-        "correo": "Luis@gmail.com"
+        "nombre": "Ana",
+        "correo": "Ana@gmail.com"
     }
 
     # Datos de la empresa

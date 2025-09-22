@@ -118,9 +118,23 @@ def iso9001_inicio():
         return render_template("opcionesISO9001.html", datos=datos)
     return render_template("registroISO.html")
 
+from flask import render_template, session
+
 @app.route("/iso9001/capacitacion")
 def capacitacion():
-    return render_template("capacitacion.html")
+    # lista de documentos completados (puede venir de la base de datos)
+    plantillas_completadas = ['Política de Calidad', 'Objetivos de Calidad', 'FODA']
+
+    # lista de capacitaciones existentes
+    capacitaciones = get_capacitaciones()  # función que retorna los registros
+
+    return render_template(
+        "capacitacion.html",
+        plantillas_completadas=plantillas_completadas,
+        capacitaciones=capacitaciones,
+        rol=session.get("rol", "capacitado")  # opcional, si quieres pasar el rol al template
+    )
+
 
 @app.route("/iso9001/auditoria")
 def auditoria():

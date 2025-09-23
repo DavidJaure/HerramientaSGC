@@ -1,4 +1,4 @@
-# ISO 9001 Quality Management System - Flask Web Application
+# ISO 9001 herramienta SGC - Flask Web Application
 
 Este proyecto es una aplicación web desarrollada con **Flask** para facilitar la implementación y auditoría de un Sistema de Gestión de Calidad ISO 9001 en una empresa. Permite gestionar plantillas, realizar auditorías, registrar capacitaciones y generar informes en formato PDF.
 

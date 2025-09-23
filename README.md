@@ -25,7 +25,7 @@ Este proyecto es una aplicación web desarrollada con **Flask** para facilitar l
 
 ### HTML/CSS: Interfaz web.
 
-### JavaScript (opcional): Interactividad en el front-end.
+### JavaScript: Interactividad en el front-end.
 
 ### Python: Lenguaje principal del backend
 

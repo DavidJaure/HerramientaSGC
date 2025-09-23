@@ -17,7 +17,12 @@
         <li class="flex flex-col md:flex-row md:items-center gap-3">
           <a href="{{ url_for('descargar_plantilla', categoria='contexto', archivo='PlantillaAlcanceformato.xlsx') }}" 
              class="flex-1 text-center px-4 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition"> Alcance 💾</a>
+
           <input type="file" id="file-alcance" class="hidden" onchange="actualizarEstado('alcance')">
+          <button class="flex items-center bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition duration-300" onclick="window.location.href='https://www.youtube.com/watch?v=TUVIDEOID'">
+    <img src="https://cdn.pixabay.com/photo/2023/04/25/00/48/youtube-7949229_1280.png" alt="Logo" class="w-6 h-6 mr-3">
+    Ver Video
+  </button>
           <button type="button" onclick="document.getElementById('file-alcance').click()" 
                   class="flex-1 text-center px-4 py-2 bg-gray-400 text-white rounded-lg shadow hover:bg-gray-500 transition">Subir Actualizada</button>
           <a href="#" id="descargar-alcance" 
@@ -29,6 +34,10 @@
           <a href="{{ url_for('descargar_plantilla', categoria='contexto', archivo='MapadeProcesosformato.xlsx') }}" 
              class="flex-1 text-center px-4 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition">Mapa de Procesos 💾</a>
           <input type="file" id="file-mapa" class="hidden" onchange="actualizarEstado('mapa')">
+          <button class="flex items-center bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition duration-300" onclick="window.location.href='https://www.youtube.com/watch?v=TUVIDEOID'">
+    <img src="https://cdn.pixabay.com/photo/2023/04/25/00/48/youtube-7949229_1280.png" alt="Logo" class="w-6 h-6 mr-3">
+    Ver Video
+  </button>
           <button type="button" onclick="document.getElementById('file-mapa').click()" 
                   class="flex-1 text-center px-4 py-2 bg-gray-400 text-white rounded-lg shadow hover:bg-gray-500 transition">Subir Actualizada</button>
           <a href="#" id="descargar-mapa" 
@@ -40,6 +49,10 @@
           <a href="{{ url_for('descargar_plantilla', categoria='contexto', archivo='FichadeprocesosFormato.xlsx') }}" 
              class="flex-1 text-center px-4 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition">Ficha de Procesos 💾</a>
           <input type="file" id="file-ficha" class="hidden" onchange="actualizarEstado('ficha')">
+          <button class="flex items-center bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition duration-300" onclick="window.location.href='https://www.youtube.com/watch?v=TUVIDEOID'">
+    <img src="https://cdn.pixabay.com/photo/2023/04/25/00/48/youtube-7949229_1280.png" alt="Logo" class="w-6 h-6 mr-3">
+    Ver Video
+  </button>
           <button type="button" onclick="document.getElementById('file-ficha').click()" 
                   class="flex-1 text-center px-4 py-2 bg-gray-400 text-white rounded-lg shadow hover:bg-gray-500 transition">Subir Actualizada</button>
           <a href="#" id="descargar-ficha" 
@@ -51,6 +64,10 @@
           <a href="{{ url_for('descargar_plantilla', categoria='contexto', archivo='PlantillaPartesinteresadasformato.xlsx') }}" 
              class="flex-1 text-center px-4 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition">Partes Interesadas 💾</a>
           <input type="file" id="file-partes" class="hidden" onchange="actualizarEstado('partes')">
+          <button class="flex items-center bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition duration-300" onclick="window.location.href='https://www.youtube.com/watch?v=TUVIDEOID'">
+    <img src="https://cdn.pixabay.com/photo/2023/04/25/00/48/youtube-7949229_1280.png" alt="Logo" class="w-6 h-6 mr-3">
+    Ver Video
+  </button>
           <button type="button" onclick="document.getElementById('file-partes').click()" 
                   class="flex-1 text-center px-4 py-2 bg-gray-400 text-white rounded-lg shadow hover:bg-gray-500 transition">Subir Actualizada</button>
           <a href="#" id="descargar-partes" 
@@ -62,6 +79,10 @@
           <a href="{{ url_for('descargar_plantilla', categoria='contexto', archivo='PlantillaFODAFormato.xlsx') }}" 
              class="flex-1 text-center px-4 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition">FODA 💾</a>
           <input type="file" id="file-foda" class="hidden" onchange="actualizarEstado('foda')">
+          <button class="flex items-center bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition duration-300" onclick="window.location.href='https://www.youtube.com/watch?v=TUVIDEOID'">
+    <img src="https://cdn.pixabay.com/photo/2023/04/25/00/48/youtube-7949229_1280.png" alt="Logo" class="w-6 h-6 mr-3">
+    Ver Video
+  </button>
           <button type="button" onclick="document.getElementById('file-foda').click()" 
                   class="flex-1 text-center px-4 py-2 bg-gray-400 text-white rounded-lg shadow hover:bg-gray-500 transition">Subir Actualizada</button>
           <a href="#" id="descargar-foda" 
@@ -73,6 +94,10 @@
           <a href="{{ url_for('descargar_plantilla', categoria='contexto', archivo='PlantillaPESTALFormato.xlsx') }}" 
              class="flex-1 text-center px-4 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition">PESTAL 💾</a>
           <input type="file" id="file-pestal" class="hidden" onchange="actualizarEstado('pestal')">
+          <button class="flex items-center bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition duration-300" onclick="window.location.href='https://www.youtube.com/watch?v=TUVIDEOID'">
+    <img src="https://cdn.pixabay.com/photo/2023/04/25/00/48/youtube-7949229_1280.png" alt="Logo" class="w-6 h-6 mr-3">
+    Ver Video
+  </button>
           <button type="button" onclick="document.getElementById('file-pestal').click()" 
                   class="flex-1 text-center px-4 py-2 bg-gray-400 text-white rounded-lg shadow hover:bg-gray-500 transition">Subir Actualizada</button>
           <a href="#" id="descargar-pestal" 
@@ -84,6 +109,10 @@
           <a href="{{ url_for('descargar_plantilla', categoria='contexto', archivo='Plantilla5FUERZASDEPORTERFormato.xlsx') }}" 
              class="flex-1 text-center px-4 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition">5 Fuerzas de Porter 💾</a>
           <input type="file" id="file-fuerzas" class="hidden" onchange="actualizarEstado('fuerzas')">
+          <button class="flex items-center bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition duration-300" onclick="window.location.href='https://www.youtube.com/watch?v=TUVIDEOID'">
+    <img src="https://cdn.pixabay.com/photo/2023/04/25/00/48/youtube-7949229_1280.png" alt="Logo" class="w-6 h-6 mr-3">
+    Ver Video
+  </button>
           <button type="button" onclick="document.getElementById('file-fuerzas').click()" 
                   class="flex-1 text-center px-4 py-2 bg-gray-400 text-white rounded-lg shadow hover:bg-gray-500 transition">Subir Actualizada</button>
           <a href="#" id="descargar-fuerzas" 
@@ -101,6 +130,10 @@
           <a href="{{ url_for('descargar_plantilla', categoria='liderazgo', archivo='ChecklistLiderazgoActualFormato.xlsx') }}" 
              class="flex-1 text-center px-4 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition">Liderazgo 💾</a>
           <input type="file" id="file-liderazgo1" class="hidden" onchange="actualizarEstado('liderazgo1')">
+          <button class="flex items-center bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition duration-300" onclick="window.location.href='https://www.youtube.com/watch?v=TUVIDEOID'">
+    <img src="https://cdn.pixabay.com/photo/2023/04/25/00/48/youtube-7949229_1280.png" alt="Logo" class="w-6 h-6 mr-3">
+    Ver Video
+  </button>
           <button type="button" onclick="document.getElementById('file-liderazgo1').click()" 
                   class="flex-1 text-center px-4 py-2 bg-gray-400 text-white rounded-lg shadow hover:bg-gray-500 transition">Subir Actualizada</button>
           <a href="#" id="descargar-liderazgo1" 
@@ -108,9 +141,14 @@
           <span id="estado-liderazgo1" class="font-bold text-red-500 min-w-[100px] text-center">Pendiente</span>
         </li>
         <li class="flex flex-col md:flex-row md:items-center gap-3">
+          
           <a href="{{ url_for('descargar_plantilla', categoria='liderazgo', archivo='PlantillaPolíticadeCalidadFormato.xlsx') }}" 
              class="flex-1 text-center px-4 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition">Política de Calidad 💾</a>
           <input type="file" id="file-liderazgo2" class="hidden" onchange="actualizarEstado('liderazgo2')">
+          <button class="flex items-center bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition duration-300" onclick="window.location.href='https://www.youtube.com/watch?v=TUVIDEOID'">
+    <img src="https://cdn.pixabay.com/photo/2023/04/25/00/48/youtube-7949229_1280.png" alt="Logo" class="w-6 h-6 mr-3">
+    Ver Video
+  </button>
           <button type="button" onclick="document.getElementById('file-liderazgo2').click()" 
                   class="flex-1 text-center px-4 py-2 bg-gray-400 text-white rounded-lg shadow hover:bg-gray-500 transition">Subir Actualizada</button>
           <a href="#" id="descargar-liderazgo2" 
@@ -128,6 +166,11 @@
           <a href="{{ url_for('descargar_plantilla', categoria='evaluacionDesempeño', archivo='1.14.MultiplantillaIndicadoresporareaFuncionalADNLean.xlsx') }}" 
              class="flex-1 text-center px-4 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition">Multiplantilla Indicadores por Área Funcional 💾</a>
           <input type="file" id="file-indicadores1" class="hidden" onchange="actualizarEstado('indicadores1')">
+          
+          <button class="flex items-center bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition duration-300" onclick="window.location.href='https://www.youtube.com/watch?v=TUVIDEOID'">
+    <img src="https://cdn.pixabay.com/photo/2023/04/25/00/48/youtube-7949229_1280.png" alt="Logo" class="w-6 h-6 mr-3">
+    Ver Video
+  </button>
           <button type="button" onclick="document.getElementById('file-indicadores1').click()" 
                   class="flex-1 text-center px-4 py-2 bg-gray-400 text-white rounded-lg shadow hover:bg-gray-500 transition">Subir Actualizada</button>
           <a href="#" id="descargar-indicadores1" 

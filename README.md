@@ -17,20 +17,16 @@ Este proyecto es una aplicación web desarrollada con **Flask** para facilitar l
 - fpdf
 - WeasyPrint
 
-## Instalación
+# Tecnologías utilizadas
 
-1. **Clona el repositorio**:
-   ```bash
-   git clone https://github.com/tu-usuario/iso9001-flask-app.git
-   cd iso9001-flask-app
+### Flask: Micro-framework web para Python.
 
-2. **Instala las dependencias**:
-se recomienda crear un entorno virtual para gestionar las dependencias:
-python3 -m venv venv
-source venv/bin/activate  # En Linux/Mac
-venv\Scripts\activate  # En Windows
+### FPDF / WeasyPrint: Generación de PDFs.
 
-### Luego instala las dependencias necesarias:
-pip install -r requirements.txt
+### HTML/CSS: Interfaz web.
+
+### JavaScript (opcional): Interactividad en el front-end.
+
+### Python: Lenguaje principal del backend
 
 
